@@ -2,62 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Website Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for search icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
-  <!-- Navbar + Hero -->
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <a href="index.html" class="nav-brand">MyWebsite</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <div class="nav-left">
+        <a href="index.html" class="nav-brand">
+          <img src="assets/logo.png" alt="Logo" class="logo"> MyWebsite
+        </a>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-search">
+          <input type="text" placeholder="Search...">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+      </div>
     </nav>
-
-    <div class="hero">
-      <h1>My Name</h1>
-      <p class="tagline">Short description about you or your project</p>
-    </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About</h2>
-    <p>Write something about yourself or the project.</p>
+  <!-- Hero / Explanation Section -->
+  <section class="hero-section">
+    <div class="hero-text">
+      <h1>Welcome to Our Site</h1>
+      <p>This site is dedicated to research and innovation. Learn more about our projects, news, and team here.</p>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero.jpg" alt="Hero Image">
+    </div>
   </section>
 
-  <!-- Projects / Links -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Project One</a></li>
-      <li><a href="#">Project Two</a></li>
-      <li><a href="#">Project Three</a></li>
-    </ul>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <ul>
-      <li><a href="mailto:you@example.com">Email</a></li>
-      <li><a href="https://github.com/username">GitHub</a></li>
-      <li><a href="#">Other</a></li>
-    </ul>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 My Name</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
