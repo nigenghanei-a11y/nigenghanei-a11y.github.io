@@ -1,0 +1,59 @@
+/* Variables */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --accent: #0066ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Container */
+header, section, footer {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header .tagline {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Section headings */
+h2 {
+  margin-top: 2rem;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 4rem;
+}
