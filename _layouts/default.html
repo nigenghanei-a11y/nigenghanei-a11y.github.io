@@ -14,10 +14,16 @@
 
   <!-- Your Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  
 </head>
 <body>
   {% include navbar.html %}
   {{ content }}
+
+  <!-- D3.js Library (MUST be at the end) -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- Your Script (after D3.js) -->
+  <script src="{{ '/assets/script.js' | relative_url }}"></script>
 </body>
 </html>
