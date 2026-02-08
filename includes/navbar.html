@@ -1,20 +1,16 @@
- <nav class="navbar">
-      <div class="nav-left">
-        <a href="index.html" class="nav-brand">
-          <img src="assets/logo.png" alt="Logo" class="logo"> MyWebsite
-        </a>
-      </div>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-search">
-          <input type="text" placeholder="Search...">
-          <button><i class="fas fa-search"></i></button>
-        </div>
-      </div>
-    </nav>
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="{{ "/" | relative_url }}" class="nav-brand">
+        <img src="{{ "/assets/SRH_Logo_sRGB_Orange.png" | relative_url }}" alt="Logo" class="logo"> Research projects
+      </a>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="{{ "/index.html" | relative_url }}">Home</a></li>
+        <li><a href="{{ "/news" | relative_url }}">News</a></li>
+        <li><a href="{{ "/team" | relative_url }}">Team</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>

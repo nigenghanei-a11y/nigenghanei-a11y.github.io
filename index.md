@@ -4,7 +4,13 @@ title: "Research Projects"
 ---
 
 <section class="hero-section">
-  <!-- keep your hero section as-is -->
+  <div class="hero-text">
+    <h1>Welcome to Our Site</h1>
+    <p>This site is dedicated to research and innovation. Learn more about our projects, news, and team here.</p>
+  </div>
+  <div class="hero-image">
+    <svg id="svg" width="500" height="500"></svg>
+  </div>
 </section>
 
 <section id="news" class="news-section">
@@ -27,11 +33,10 @@ title: "Research Projects"
     <h2 class="section-title">Our Team</h2>
     <div class="team-grid">
       <div class="team-card">
-        <img src="assets/team1.jpg" alt="Team member">
+        <img src="{{ "/assets/team1.jpg" | relative_url }}" alt="Team member">
         <h3>Dr. John Doe</h3>
         <p>Lead Researcher</p>
       </div>
-      <!-- Add more team members here -->
     </div>
   </div>
 </section>
