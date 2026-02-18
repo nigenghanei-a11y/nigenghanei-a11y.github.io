@@ -1,0 +1,78 @@
+---
+layout: default
+---
+
+<section class="publication-detail-section">
+  <div class="container">
+    
+    <!-- Back Button -->
+    <a href="{{ '/research' | relative_url }}" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Research
+    </a>
+    
+    <!-- Publication Type Badge -->
+    {% if page.type == "paper" %}
+    <span class="pub-type-badge paper"><i class="fa-solid fa-file-lines"></i> Paper</span>
+    {% elsif page.type == "grant" %}
+    <span class="pub-type-badge grant"><i class="fa-solid fa-hand-holding-dollar"></i> Grant</span>
+    {% elsif page.type == "project" %}
+    <span class="pub-type-badge project"><i class="fa-solid fa-folder-open"></i> Project</span>
+    {% else %}
+    <span class="pub-type-badge"><i class="fa-solid fa-book"></i> Publication</span>
+    {% endif %}
+    
+    <!-- Title -->
+    <h1 class="pub-detail-title">{{ page.title }}</h1>
+    
+    <!-- Meta Info -->
+    <div class="pub-meta-box">
+      {% if page.authors %}
+      <p><strong>Authors:</strong> {{ page.authors }}</p>
+      {% endif %}
+      
+      {% if page.journal %}
+      <p><strong>Journal:</strong> {{ page.journal }}</p>
+      {% endif %}
+      
+      {% if page.date %}
+      <p><strong>Date:</strong> {{ page.date | date: "%B %Y" }}</p>
+      {% endif %}
+      
+      {% if page.doi %}
+      <p><strong>DOI:</strong> <a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener">{{ page.doi }}</a></p>
+      {% endif %}
+      
+      {% if page.funding %}
+      <p><strong>Funding:</strong> {{ page.funding }}</p>
+      {% endif %}
+    </div>
+    
+    <!-- Abstract/Description -->
+    <div class="pub-abstract">
+      <h2>Abstract</h2>
+      {{ page.abstract | default: content | markdownify }}
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="pub-actions">
+      {% if page.pdf %}
+      <a href="{{ page.pdf | relative_url }}" class="pub-action-btn" target="_blank" rel="noopener">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+      {% endif %}
+      
+      {% if page.code %}
+      <a href="{{ page.code }}" class="pub-action-btn secondary" target="_blank" rel="noopener">
+        <i class="fa-brands fa-github"></i> View Code
+      </a>
+      {% endif %}
+      
+      {% if page.doi %}
+      <a href="https://doi.org/{{ page.doi }}" class="pub-action-btn secondary" target="_blank" rel="noopener">
+        <i class="fa-solid fa-link"></i> DOI Link
+      </a>
+      {% endif %}
+    </div>
+    
+  </div>
+</section>
