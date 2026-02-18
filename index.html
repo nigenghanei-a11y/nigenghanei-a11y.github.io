@@ -18,15 +18,30 @@ title: "Research Projects"
     <h2 class="section-title">Latest News</h2>
     <div class="news-grid">
       {% for post in site.posts limit:5 %}
-      <div class="news-card">
-        <div class="news-date">{{ post.date | date: "%b %-d, %Y" }}</div>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-        <p>{{ post.summary }}</p>
-      </div>
+      <article class="news-card">
+        <!-- ✅ Featured Image (if exists) -->
+        {% if post.image %}
+        <div class="news-card-image">
+          <a href="{{ post.url | relative_url }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          </a>
+        </div>
+        {% endif %}
+        
+        <div class="news-card-content">
+          <div class="news-date">
+            <i class="fa-regular fa-calendar"></i> {{ post.date | date: "%b %-d, %Y" }}
+          </div>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.summary | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+        </div>
+      </article>
       {% endfor %}
     </div>
   </div>
 </section>
+
 
 <section id="team" class="team-section">
   <div class="container">
