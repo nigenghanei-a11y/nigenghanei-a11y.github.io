@@ -63,3 +63,22 @@ exclude:
 
 permalink: pretty
 timezone: Europe/Berlin
+
+# ===== COLLECTIONS =====
+collections:
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title/
+  
+  publications:
+    output: true
+    permalink: /publications/:title/
+    sort_by: date
+    order: descending
+  
+  # ✅ NEW: Team members collection
+  team:
+    output: true
+    permalink: /team/:title/
+    sort_by: order
+    order: ascending
