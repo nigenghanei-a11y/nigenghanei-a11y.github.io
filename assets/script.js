@@ -160,3 +160,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ===== PUBLICATION FILTER =====
+const filterBtns = document.querySelectorAll(".filter-btn");
+const pubCards = document.querySelectorAll(".pub-card");
+
+if (filterBtns.length > 0 && pubCards.length > 0) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      
+      const filter = btn.dataset.filter;
+      
+      // Filter cards
+      pubCards.forEach(card => {
+        const type = card.dataset.type;
+        if (filter === "all" || type === filter) {
+          card.style.display = "block";
+          // Add fade-in animation
+          card.style.animation = "fadeInUp 0.4s ease-out forwards";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}

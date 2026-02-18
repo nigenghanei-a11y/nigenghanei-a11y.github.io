@@ -150,3 +150,61 @@ has_research_animation: true
 
   </div>
 </section>
+
+<section>
+    <!-- ===== PUBLICATIONS SECTION ===== -->
+    <div class="publications-section" id="publications">
+      <h2 class="subsection-title">Projects, Grants & Publications</h2>
+      
+      <!-- Filter Tabs -->
+      <div class="pub-filter-tabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="paper">Papers</button>
+        <button class="filter-btn" data-filter="grant">Grants</button>
+        <button class="filter-btn" data-filter="project">Projects</button>
+      </div>
+      
+      <!-- Publications Grid -->
+      <div class="pub-grid">
+        {% for pub in site.publications limit:9 %}
+        <a href="{{ pub.url | relative_url }}" class="pub-card" data-type="{{ pub.type }}">
+          <div class="pub-icon">
+            {% if pub.type == "paper" %}
+            <i class="fa-solid fa-file-lines"></i>
+            {% elsif pub.type == "grant" %}
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            {% elsif pub.type == "project" %}
+            <i class="fa-solid fa-folder-open"></i>
+            {% else %}
+            <i class="fa-solid fa-book"></i>
+            {% endif %}
+          </div>
+          <h3>{{ pub.title }}</h3>
+          <p>{{ pub.abstract | default: pub.excerpt | strip_html | truncatewords: 18 }}</p>
+          <span class="pub-meta">
+            {% if pub.authors %}{{ pub.authors | truncatewords: 4 }} • {% endif %}
+            {{ pub.date | date: "%b %Y" }}
+          </span>
+          <span class="pub-link">Read More →</span>
+        </a>
+        {% endfor %}
+        
+        <!-- Empty State (if no publications yet) -->
+        {% if site.publications.size == 0 %}
+        <div class="pub-empty">
+          <i class="fa-solid fa-inbox"></i>
+          <p>No publications yet. Check back soon!</p>
+        </div>
+        {% endif %}
+      </div>
+      
+      <!-- View All Link (if more than 9 items) -->
+      {% if site.publications.size > 9 %}
+      <div class="view-all-pubs">
+        <a href="#" class="view-all-btn" onclick="document.querySelector('.pub-grid').scrollIntoView({behavior: 'smooth'}); return false;">
+          Load More Publications →
+        </a>
+      </div>
+      {% endif %}
+    </div>
+</section>

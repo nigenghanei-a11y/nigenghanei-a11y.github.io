@@ -15,12 +15,34 @@ layout: default
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="post-meta">
         <i class="fa-regular fa-calendar"></i> {{ page.date | date: "%B %-d, %Y" }}
+        {% if page.author %} • <span class="post-author">{{ page.author }}</span>{% endif %}
       </p>
     </header>
+    
+    <!-- Featured Image (Optional) -->
+    {% if page.image %}
+    <div class="post-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
     
     <!-- Post Content -->
     <div class="post-content">
       {{ content }}
+    </div>
+    
+    <!-- Share Links (Optional) -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-btn twitter">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" class="share-btn linkedin">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url }}" class="share-btn email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
     </div>
     
   </div>
