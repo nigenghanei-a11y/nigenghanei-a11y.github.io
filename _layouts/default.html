@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,5 +25,6 @@
   
   <!-- Your Script (after D3.js) -->
   <script src="{{ '/assets/script.js' | relative_url }}"></script>
+  {% endif %}
 </body>
 </html>
