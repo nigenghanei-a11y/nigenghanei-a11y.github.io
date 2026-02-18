@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<section class="team-member-detail">
+  <div class="container">
+    
+    <!-- Back Button -->
+    <a href="{{ '/#team' | relative_url }}" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Team
+    </a>
+    
+    <!-- Member Profile -->
+    <div class="member-profile">
+      
+      <!-- Profile Image -->
+      <div class="member-image">
+        {% if page.image %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.name }}">
+        {% else %}
+        <div class="member-image-placeholder">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        {% endif %}
+      </div>
+      
+      <!-- Member Info -->
+      <div class="member-info">
+        <h1 class="member-name">{{ page.name }}</h1>
+        <p class="member-role">{{ page.role }}</p>
+        
+        {% if page.email %}
+        <p class="member-contact">
+          <i class="fa-solid fa-envelope"></i> 
+          <a href="mailto:{{ page.email }}">{{ page.email }}</a>
+        </p>
+        {% endif %}
+        
+        <!-- Social Links -->
+        <div class="member-social">
+          {% if page.github %}
+          <a href="{{ page.github }}" target="_blank" rel="noopener" class="social-link github">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          {% endif %}
+          
+          {% if page.twitter %}
+          <a href="{{ page.twitter }}" target="_blank" rel="noopener" class="social-link twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          {% endif %}
+          
+          {% if page.linkedin %}
+          <a href="{{ page.linkedin }}" target="_blank" rel="noopener" class="social-link linkedin">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          {% endif %}
+          
+          {% if page.orcid %}
+          <a href="{{ page.orcid }}" target="_blank" rel="noopener" class="social-link orcid">
+            <i class="fa-brands fa-orcid"></i>
+          </a>
+          {% endif %}
+          
+          {% if page.website %}
+          <a href="{{ page.website }}" target="_blank" rel="noopener" class="social-link website">
+            <i class="fa-solid fa-globe"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bio/About -->
+    {% if page.bio %}
+    <div class="member-bio">
+      <h2>About</h2>
+      {{ page.bio | markdownify }}
+    </div>
+    {% endif %}
+    
+    <!-- Research Interests -->
+    {% if page.interests %}
+    <div class="member-interests">
+      <h2>Research Interests</h2>
+      <ul>
+        {% for interest in page.interests %}
+        <li>{{ interest }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    
+    <!-- Publications -->
+    {% if page.publications %}
+    <div class="member-publications">
+      <h2>Selected Publications</h2>
+      {{ page.publications | markdownify }}
+    </div>
+    {% endif %}
+    
+  </div>
+</section>

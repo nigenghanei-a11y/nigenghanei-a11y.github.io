@@ -82,3 +82,30 @@ collections:
     permalink: /team/:title/
     sort_by: order
     order: ascending
+
+    # ===== DEFAULT LAYOUTS =====
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
+  
+  # ✅ NEW: Team members
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team-member"
