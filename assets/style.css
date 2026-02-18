@@ -202,16 +202,43 @@ header {
 
 .news-card {
   background: white;
-  padding: 1.6rem;
   border-radius: 14px;
   border-left: 5px solid var(--primary);
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* News Card Image - SMALLER (150px) */
+.news-card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-card-image img {
+  transform: scale(1.05);
+}
+
+.news-card-content {
+  padding: 1.4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-icon {
@@ -221,18 +248,54 @@ header {
 }
 
 .news-date {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--muted);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.news-date i {
+  color: var(--primary);
 }
 
 .news-card h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.news-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.news-card h3 a:hover {
+  color: var(--primary);
 }
 
 .news-card p {
   color: var(--muted);
   line-height: 1.5;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: gap 0.2s ease;
+}
+
+.read-more:hover {
+  gap: 0.6rem;
 }
 
 /* ===== TEAM SECTION ===== */
