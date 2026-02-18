@@ -476,11 +476,10 @@ header {
   padding: 4rem 0;
   min-height: 80vh;
 }
-
 .research-content {
-  max-width: 900px;
+  max-width: 750px;              /* Changed from 900px */
   margin: 0 auto 3rem;
-  text-align: left;
+  text-align: center;            /* Center the container */
 }
 
 .research-content .lead {
@@ -488,13 +487,46 @@ header {
   line-height: 1.8;
   color: var(--text);
   margin-bottom: 1.5rem;
+  text-align: left;              /* NEW: Left-align text */
+  display: inline-block;         /* NEW: Allows centering block */
+  max-width: 100%;
+  text-wrap: pretty;             /* NEW: Prevents widows */
+  hyphens: auto;                 /* NEW: Cleaner edges */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
 
 .research-content p {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;            /* Changed from 1rem */
+  line-height: 1.8;              /* Changed from 1.7 */
   color: var(--muted);
+  text-align: left;              /* NEW: Left-align text */
+  display: inline-block;         /* NEW: Allows centering block */
+  max-width: 100%;
+  margin-bottom: 1.2rem;         /* NEW: Spacing between paragraphs */
+  text-wrap: pretty;             /* NEW: Prevents widows */
+  hyphens: auto;                 /* NEW: Cleaner edges */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
+
+/* Paragraph indentation for 2nd+ paragraphs */
+.research-content p + p {
+  text-indent: 1.5rem;
+  margin-top: 0;
+}
+
+/* Optional: Drop cap for lead paragraph */
+.research-content .lead::first-letter {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.5rem;
+  margin-top: 0.3rem;
+}
+
 
 .research-content a {
   color: var(--primary);
@@ -516,7 +548,7 @@ header {
 
 .subsection-title::after {
   content: "";
-  width: 30px;
+  width: 60px;
   height: 3px;
   background: var(--primary);
   display: block;
