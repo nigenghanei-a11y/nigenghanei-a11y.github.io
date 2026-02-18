@@ -3,7 +3,7 @@ layout: post
 title: "Lab Receives NSF Grant"
 date: 2026-02-08
 summary: "Our lab to study AI safety in autonomous systems."
-image: "/assets/images/profile.jpg"
+
 ---
 
 We are excited to announce that our lab r in AI safety.
