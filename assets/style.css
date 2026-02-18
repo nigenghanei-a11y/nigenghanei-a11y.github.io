@@ -516,17 +516,6 @@ header {
   margin-top: 0;
 }
 
-/* Optional: Drop cap for lead paragraph */
-.research-content .lead::first-letter {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  float: left;
-  line-height: 0.8;
-  margin-right: 0.5rem;
-  margin-top: 0.3rem;
-}
-
 
 .research-content a {
   color: var(--primary);
