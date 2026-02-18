@@ -516,7 +516,7 @@ header {
 
 .subsection-title::after {
   content: "";
-  width: 60px;
+  width: 30px;
   height: 3px;
   background: var(--primary);
   display: block;
