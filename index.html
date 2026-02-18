@@ -43,54 +43,42 @@ title: "Research Projects"
 </section>
 
 
+<!-- TEAM SECTION -->
 <section id="team" class="team-section">
   <div class="container">
     <h2 class="section-title">Team</h2>
 
     <div class="team-grid">
-
-      <div class="team-card">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Philipp">
-        <h3>Philien</h3>
-        <p class="team-role">Junior Research Group Leader</p>
-        <div class="team-links">
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      {% for member in site.team %}
+      <a href="{{ member.url | relative_url }}" class="team-card-link">
+        <div class="team-card">
+          {% if member.image %}
+          <img src="{{ member.image | relative_url }}" alt="{{ member.name }}">
+          {% else %}
+          <div class="team-card-image-placeholder">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          {% endif %}
+          <h3>{{ member.name }}</h3>
+          <p class="team-role">{{ member.role }}</p>
+          <div class="team-links">
+            {% if member.github %}
+            <a href="{{ member.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+            {% endif %}
+            {% if member.email %}
+            <a href="mailto:{{ member.email }}"><i class="fa-solid fa-envelope"></i></a>
+            {% endif %}
+            {% if member.twitter %}
+            <a href="{{ member.twitter }}" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+            {% endif %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            {% endif %}
+          </div>
+          <span class="view-profile">View Profile →</span>
         </div>
-      </div>
-
-      <div class="team-card">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Carlos A">
-        <h3>Carlos A. A</h3>
-        <p class="team-role">Research Visiting Fellow</p>
-        <div class="team-links">
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-orcid"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Dirkn">
-        <h3>Dirann</h3>
-        <p class="team-role">Director</p>
-        <div class="team-links">
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="team-card">
-        <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Adriae">
-        <h3>Adri</h3>
-        <p class="team-role">PhD Student</p>
-        <div class="team-links">
-          <a href="#"><i class="fa-solid fa-envelope"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-        </div>
-      </div>
-
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
