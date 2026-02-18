@@ -4,9 +4,7 @@ description: "Research and innovation at the intersection of complexity science,
 author: Negin Ghanei
 email: your-email@example.com
 
-# ===== URL SETTINGS =====
-# For user/organization sites (username.github.io): leave baseurl empty
-# For project sites (username.github.io/repo-name): set baseurl to "/repo-name"
+# ===== URL SETTINGS (FIXED: no trailing spaces) =====
 baseurl: ""
 url: "https://nigenghanei-a11y.github.io"
 
@@ -15,19 +13,16 @@ markdown: kramdown
 highlighter: rouge
 theme: null
 
-# GitHub Pages plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# ===== COLLECTIONS: Auto-generated pages =====
+# ===== COLLECTIONS =====
 collections:
-  # News posts (from _posts folder)
   posts:
     output: true
     permalink: /news/:year/:month/:day/:title/
   
-  # Publications (from _publications folder) - NEW
   publications:
     output: true
     permalink: /publications/:title/
@@ -36,28 +31,25 @@ collections:
 
 # ===== DEFAULT LAYOUTS =====
 defaults:
-  # All regular pages (index.md, research.md, etc.)
   - scope:
       path: ""
       type: "pages"
     values:
       layout: "default"
   
-  # News posts (_posts/*.md) - CHANGE "post" TO "default" IF YOU WANT SIMPLE LAYOUT
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
   
-  # Publications (_publications/*.md)
   - scope:
       path: ""
       type: "publications"
     values:
       layout: "publication"
 
-# ===== EXCLUDE FROM BUILD =====
+# ===== EXCLUDE =====
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -69,8 +61,5 @@ exclude:
   - .jekyll-cache/
   - gemfiles/
 
-# ===== PERMALINK STRUCTURE =====
 permalink: pretty
-
-# ===== TIMEZONE =====
 timezone: Europe/Berlin
