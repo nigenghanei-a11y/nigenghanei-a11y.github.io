@@ -1,3 +1,58 @@
+# Site Settings
 title: "Research Projects"
-baseurl: "" # leave blank if hosted at root
-url: "https://nigenghanei-a11y.github.io/"
+description: "Research and innovation site"
+author: Negin Ghanei
+
+# URL Settings (fixed: removed trailing spaces)
+baseurl: ""
+url: "https://nigenghanei-a11y.github.io"
+
+# Build Settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-seo-tag
+
+# Collections: Auto-generated pages
+collections:
+  # News posts (already working via _posts)
+  posts:
+    output: true
+    permalink: /news/:year/:month/:day/:title/
+  
+  # NEW: Publications collection
+  publications:
+    output: true
+    permalink: /publications/:title/
+    sort_by: date
+    order: descending
+
+# Default layouts for different content types
+defaults:
+  # Homepage and regular pages
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  
+  # News posts (_posts folder)
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"        # ← Change this to control news page layout
+  
+  # Publications (_publications folder)
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
+
+# Exclude files from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules/
