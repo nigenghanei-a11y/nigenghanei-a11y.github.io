@@ -1,8 +1,8 @@
 ---
-name: "Negin Ghanei"
+name: "Negin"
 role: "Junior Research Group Leader"
-email: "negin.ghanei@srh-heidelberg.de"
-image: "/assets/images/negin-ghanei.jpg"
+email: "ghanei@srh-heidelberg.de"
+image: "/assets/images/profile.jpg"
 order: 1
 github: "https://github.com/yourusername"
 twitter: "https://twitter.com/yourhandle"
@@ -20,6 +20,6 @@ interests:
   - Machine Learning
   - Sustainability
 publications: |
-  - Ghanei, N. et al. (2024). "Complex Contagion Dynamics." *Nature Communications*.
-  - Ghanei, N. (2023). "Network Resilience." *Physical Review E*.
+  - , N. et al. (2024). "Complex Contagion Dynamics." *Nature Communications*.
+  - , N. (2023). "Network Resilience." *Physical Review E*.
 ---
