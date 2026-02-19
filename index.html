@@ -47,11 +47,22 @@ title: "Research Projects"
 <section id="team" class="team-section">
   <div class="container">
     <h2 class="section-title">Team</h2>
+    
+    <!-- Team Filter Tabs -->
+    <div class="team-filter-tabs">
+      <button class="team-filter-btn active" data-filter="all">All</button>
+      <button class="team-filter-btn" data-filter="phd">PhD</button>
+      <button class="team-filter-btn" data-filter="msc">MSc</button>
+      <button class="team-filter-btn" data-filter="bsc">BSc</button>
+      <button class="team-filter-btn" data-filter="internship">Interns</button>
+      <button class="team-filter-btn" data-filter="visitor">Visitors</button>
+    </div>
 
     <div class="team-grid">
       {% for member in site.team %}
-      <a href="{{ member.url | relative_url }}" class="team-card-link">
+      <a href="{{ member.url | relative_url }}" class="team-card-link" data-category="{{ member.category | default: 'all' }}">
         <div class="team-card">
+          <!-- Profile Image -->
           {% if member.image %}
           <img src="{{ member.image | relative_url }}" alt="{{ member.name }}">
           {% else %}
@@ -59,22 +70,44 @@ title: "Research Projects"
             <i class="fa-solid fa-user"></i>
           </div>
           {% endif %}
+          
+          <!-- Name & Role -->
           <h3>{{ member.name }}</h3>
           <p class="team-role">{{ member.role }}</p>
+          
+          <!-- Category Badge -->
+          {% if member.category %}
+          <span class="team-category">{{ member.category | upcase }}</span>
+          {% endif %}
+          
+          <!-- Social Links: Email, LinkedIn, Twitter (X), GitHub -->
           <div class="team-links">
-            {% if member.github %}
-            <a href="{{ member.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-            {% endif %}
             {% if member.email %}
-            <a href="mailto:{{ member.email }}"><i class="fa-solid fa-envelope"></i></a>
+            <a href="mailto:{{ member.email }}" title="Email" target="_blank" rel="noopener">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
             {% endif %}
-            {% if member.twitter %}
-            <a href="{{ member.twitter }}" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-            {% endif %}
+            
             {% if member.linkedin %}
-            <a href="{{ member.linkedin }}" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="{{ member.linkedin }}" title="LinkedIn" target="_blank" rel="noopener">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            {% endif %}
+            
+            {% if member.twitter %}
+            <a href="{{ member.twitter }}" title="Twitter/X" target="_blank" rel="noopener">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            {% endif %}
+            
+            {% if member.github %}
+            <a href="{{ member.github }}" title="GitHub" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github"></i>
+            </a>
             {% endif %}
           </div>
+          
+          <!-- View Profile Link -->
           <span class="view-profile">View Profile →</span>
         </div>
       </a>
@@ -82,3 +115,32 @@ title: "Research Projects"
     </div>
   </div>
 </section>
+
+<!-- Team Filter JavaScript (ONLY ONE COPY) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const teamFilterBtns = document.querySelectorAll(".team-filter-btn");
+    const teamCards = document.querySelectorAll(".team-card-link");
+
+    teamFilterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // Update active button state
+        teamFilterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        
+        const filter = btn.dataset.filter;
+        
+        // Filter team cards
+        teamCards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === "all" || category === filter) {
+            card.style.display = "block";
+            card.style.animation = "fadeInUp 0.4s ease-out forwards";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
