@@ -1624,3 +1624,232 @@ header {
     height: 120px;
   }
 }
+
+/* ===== TEACHING PAGE ===== */
+.teaching-page-section {
+  background: #ffffff;
+  padding: 4rem 0;
+  min-height: 80vh;
+}
+
+.page-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.teaching-filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.teaching-card {
+  background: #f9f9f9;
+  padding: 1.8rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+  text-align: left;
+}
+
+.teaching-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.teaching-icon {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.teaching-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+  line-height: 1.3;
+  min-height: 2.6rem;
+}
+
+.teaching-student {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.teaching-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
+.teaching-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== TEACHING PROJECT DETAIL PAGE ===== */
+.teaching-project-detail {
+  background: #ffffff;
+  padding: 4rem 0;
+  min-height: 80vh;
+}
+
+.project-header {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+}
+
+.project-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.project-type-badge.phd { background: #1a237e; color: white; }
+.project-type-badge.msc { background: #0d47a1; color: white; }
+.project-type-badge.bsc { background: #1565c0; color: white; }
+.project-type-badge.internship { background: #00796b; color: white; }
+.project-type-badge.coursework { background: #5d4037; color: white; }
+
+.project-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.project-meta {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.project-meta p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.project-meta a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.project-abstract,
+.project-content {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.project-abstract h2,
+.project-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+.project-abstract p,
+.project-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.project-action-btn:hover {
+  background: #e65e00;
+  transform: translateY(-2px);
+}
+
+.project-action-btn.secondary {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.project-action-btn.secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .teaching-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .teaching-filter-tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .teaching-filter-tabs .filter-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .project-title {
+    font-size: 1.6rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+  }
+  
+  .project-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
