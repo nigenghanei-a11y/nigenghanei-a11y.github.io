@@ -116,31 +116,3 @@ title: "Research Projects"
   </div>
 </section>
 
-<!-- Team Filter JavaScript (ONLY ONE COPY) -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const teamFilterBtns = document.querySelectorAll(".team-filter-btn");
-    const teamCards = document.querySelectorAll(".team-card-link");
-
-    teamFilterBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        // Update active button state
-        teamFilterBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        
-        const filter = btn.dataset.filter;
-        
-        // Filter team cards
-        teamCards.forEach(card => {
-          const category = card.dataset.category;
-          if (filter === "all" || category === filter) {
-            card.style.display = "block";
-            card.style.animation = "fadeInUp 0.4s ease-out forwards";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      });
-    });
-  });
-</script>
