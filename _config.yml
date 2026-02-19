@@ -4,7 +4,7 @@ description: "Research and innovation at the intersection of complexity science,
 author: Negin Ghanei
 email: your-email@example.com
 
-# ===== URL SETTINGS (FIXED: no trailing spaces) =====
+# ===== URL SETTINGS (FIXED: removed trailing spaces) =====
 baseurl: ""
 url: "https://nigenghanei-a11y.github.io"
 
@@ -17,39 +17,72 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# ===== COLLECTIONS =====
+# ===== COLLECTIONS (SINGLE BLOCK - DO NOT DUPLICATE) =====
 collections:
+  # News posts
   posts:
     output: true
     permalink: /news/:year/:month/:day/:title/
   
+  # Publications
   publications:
     output: true
     permalink: /publications/:title/
     sort_by: date
     order: descending
+  
+  # Team members
+  team:
+    output: true
+    permalink: /team/:title/
+    sort_by: order
+    order: ascending
+  
+  # Teaching/Student Projects
+  teaching:
+    output: true
+    permalink: /teaching/:title/
+    sort_by: date
+    order: descending
 
-# ===== DEFAULT LAYOUTS =====
+# ===== DEFAULT LAYOUTS (SINGLE BLOCK - DO NOT DUPLICATE) =====
 defaults:
+  # Regular pages (index.md, research.md, teaching.md, etc.)
   - scope:
       path: ""
       type: "pages"
     values:
       layout: "default"
   
+  # News posts (_posts/*.md)
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
   
+  # Publications (_publications/*.md)
   - scope:
       path: ""
       type: "publications"
     values:
       layout: "publication"
+  
+  # Team members (_team/*.md)
+  - scope:
+      path: ""
+      type: "team"
+    values:
+      layout: "team-member"
+  
+  # Teaching projects (_teaching/*.md)
+  - scope:
+      path: ""
+      type: "teaching"
+    values:
+      layout: "teaching-project"
 
-# ===== EXCLUDE =====
+# ===== EXCLUDE FROM BUILD =====
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -61,51 +94,6 @@ exclude:
   - .jekyll-cache/
   - gemfiles/
 
+# ===== OTHER SETTINGS =====
 permalink: pretty
 timezone: Europe/Berlin
-
-# ===== COLLECTIONS =====
-collections:
-  posts:
-    output: true
-    permalink: /news/:year/:month/:day/:title/
-  
-  publications:
-    output: true
-    permalink: /publications/:title/
-    sort_by: date
-    order: descending
-  
-  # ✅ NEW: Team members collection
-  team:
-    output: true
-    permalink: /team/:title/
-    sort_by: order
-    order: ascending
-
-    # ===== DEFAULT LAYOUTS =====
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-  
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-  
-  - scope:
-      path: ""
-      type: "publications"
-    values:
-      layout: "publication"
-  
-  # ✅ NEW: Team members
-  - scope:
-      path: ""
-      type: "team"
-    values:
-      layout: "team-member"
