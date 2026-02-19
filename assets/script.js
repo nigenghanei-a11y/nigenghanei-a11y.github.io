@@ -188,3 +188,35 @@ if (filterBtns.length > 0 && pubCards.length > 0) {
     });
   });
 }
+
+// ===== TEAM FILTER FUNCTIONALITY =====
+function initTeamFilter() {
+  const teamFilterBtns = document.querySelectorAll(".team-filter-btn");
+  const teamCards = document.querySelectorAll(".team-card-link");
+
+  if (teamFilterBtns.length === 0 || teamCards.length === 0) return;
+
+  teamFilterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Update active button state
+      teamFilterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      
+      const filter = btn.dataset.filter;
+      
+      // Filter team cards
+      teamCards.forEach(card => {
+        const category = card.dataset.category;
+        if (filter === "all" || category === filter) {
+          card.style.display = "block";
+          card.style.animation = "fadeInUp 0.4s ease-out forwards";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+// Initialize when DOM is ready
+document.addEventListener("DOMContentLoaded", initTeamFilter);
