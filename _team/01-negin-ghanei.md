@@ -3,6 +3,7 @@ name: "Negin"
 role: "Junior Research Group Leader"
 email: "ghanei@srh-heidelberg.de"
 image: "/assets/images/profile.jpg"
+category: "msc"
 order: 1
 github: "https://github.com/yourusername"
 twitter: "https://twitter.com/yourhandle"
