@@ -1873,28 +1873,36 @@ header {
 .team-filter-tabs {
   display: flex;
   justify-content: center;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
 }
 
 .team-filter-btn {
-  padding: 0.5rem 1.2rem;
+  padding: 0.7rem 2rem;
   border: 2px solid var(--primary);
   background: white;
   color: var(--primary);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-block;
+  min-width: 120px;
 }
 
-.team-filter-btn:hover,
+.team-filter-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+
 .team-filter-btn.active {
   background: var(--primary);
   color: white;
+  border-color: var(--primary);
 }
 
 .team-filter-btn {
