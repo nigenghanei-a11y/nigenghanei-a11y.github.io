@@ -1,0 +1,95 @@
+---
+layout: default
+---
+
+<section class="teaching-project-detail">
+  <div class="container">
+    
+    <!-- Back Button -->
+    <a href="{{ '/teaching' | relative_url }}" class="back-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Teaching
+    </a>
+    
+    <!-- Project Header -->
+    <div class="project-header">
+      <span class="project-type-badge {{ page.type }}">
+        {% if page.type == "bsc" %}
+        <i class="fa-solid fa-graduation-cap"></i> BSc Thesis
+        {% elsif page.type == "msc" %}
+        <i class="fa-solid fa-user-graduate"></i> MSc Thesis
+        {% elsif page.type == "phd" %}
+        <i class="fa-solid fa-scroll"></i> PhD Thesis
+        {% elsif page.type == "internship" %}
+        <i class="fa-solid fa-briefcase"></i> Internship
+        {% elsif page.type == "coursework" %}
+        <i class="fa-solid fa-book"></i> Coursework
+        {% else %}
+        <i class="fa-solid fa-folder"></i> Project
+        {% endif %}
+      </span>
+      
+      <h1 class="project-title">{{ page.title }}</h1>
+      
+      <div class="project-meta">
+        {% if page.student %}
+        <p><strong>Student:</strong> 
+          {% if page.student_link %}
+          <a href="{{ page.student_link | relative_url }}">{{ page.student }}</a>
+          {% else %}
+          {{ page.student }}
+          {% endif %}
+        </p>
+        {% endif %}
+        
+        {% if page.supervisor %}
+        <p><strong>Supervisor:</strong> {{ page.supervisor }}</p>
+        {% endif %}
+        
+        {% if page.date %}
+        <p><strong>Date:</strong> {{ page.date | date: "%B %Y" }}</p>
+        {% endif %}
+        
+        {% if page.semester %}
+        <p><strong>Semester:</strong> {{ page.semester }}</p>
+        {% endif %}
+      </div>
+    </div>
+    
+    <!-- Abstract -->
+    {% if page.abstract %}
+    <div class="project-abstract">
+      <h2>Abstract</h2>
+      {{ page.abstract | markdownify }}
+    </div>
+    {% endif %}
+    
+    <!-- Content -->
+    <div class="project-content">
+      {{ content }}
+    </div>
+    
+    <!-- Links -->
+    {% if page.pdf or page.code or page.demo %}
+    <div class="project-actions">
+      {% if page.pdf %}
+      <a href="{{ page.pdf | relative_url }}" class="project-action-btn" target="_blank">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+      {% endif %}
+      
+      {% if page.code %}
+      <a href="{{ page.code }}" class="project-action-btn secondary" target="_blank">
+        <i class="fa-brands fa-github"></i> View Code
+      </a>
+      {% endif %}
+      
+      {% if page.demo %}
+      <a href="{{ page.demo }}" class="project-action-btn secondary" target="_blank">
+        <i class="fa-solid fa-play"></i> Live Demo
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+    
+  </div>
+</section>
