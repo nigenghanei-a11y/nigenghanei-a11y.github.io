@@ -5,6 +5,7 @@ student: "Maridt"
 student_link: "/team/maria-schmidt"
 supervisor: "Dri"
 date: 2024-06-15
+category: "msc"
 semester: "Summer 2024"
 abstract: |
   This thesis investigates informaseries analysis...
