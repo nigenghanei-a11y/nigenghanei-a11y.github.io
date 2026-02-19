@@ -2,7 +2,7 @@
 name: "Shivank"
 role: "PhD Scholar"
 category: "phd"
-image: "/assets/images/shivank.jpg"
+image: "/assets/images/profile.jpg"
 order: 1
 linkedin: "https://www.linkedin.com/in/shivank-456742169/"
 bio: |
