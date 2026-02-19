@@ -1,0 +1,69 @@
+---
+layout: default
+title: "Teaching"
+---
+
+<section class="teaching-page-section">
+  <div class="container">
+    
+    <h1 class="page-title">Selected Student Projects</h1>
+    
+    <p class="page-intro">
+      Our lab supervises Bachelor's, Master's, and PhD theses, as well as internship projects.
+    </p>
+    
+    <!-- Filter Tabs -->
+    <div class="teaching-filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="phd">PhD</button>
+      <button class="filter-btn" data-filter="msc">MSc</button>
+      <button class="filter-btn" data-filter="bsc">BSc</button>
+      <button class="filter-btn" data-filter="internship">Internships</button>
+    </div>
+    
+    <!-- Projects Grid -->
+    <div class="teaching-grid">
+      {% for project in site.teaching %}
+      <a href="{{ project.url | relative_url }}" class="teaching-card" data-type="{{ project.type }}">
+        <div class="teaching-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h3>{{ project.title }}</h3>
+        <p class="teaching-student">{{ project.student }}</p>
+        <p class="teaching-date">{{ project.date | date: "%b %Y" }}</p>
+        <span class="teaching-link">View Project →</span>
+      </a>
+      {% endfor %}
+      
+      {% if site.teaching.size == 0 %}
+      <p class="teaching-empty">No projects yet. Check back soon!</p>
+      {% endif %}
+    </div>
+    
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterBtns = document.querySelectorAll(".teaching-filter-tabs .filter-btn");
+    const teachingCards = document.querySelectorAll(".teaching-card");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        
+        const filter = btn.dataset.filter;
+        
+        teachingCards.forEach(card => {
+          const type = card.dataset.type;
+          if (filter === "all" || type === filter) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>

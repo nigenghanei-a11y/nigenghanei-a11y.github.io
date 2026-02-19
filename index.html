@@ -51,9 +51,9 @@ title: "Research Projects"
     <!-- Team Filter Tabs -->
     <div class="team-filter-tabs">
       <button class="team-filter-btn active" data-filter="all">All</button>
-      <button class="team-filter-btn" data-filter="phd">PhD Students</button>
-      <button class="team-filter-btn" data-filter="msc">MSc Students</button>
-      <button class="team-filter-btn" data-filter="bsc">BSc Students</button>
+      <button class="team-filter-btn" data-filter="phd">PhD</button>
+      <button class="team-filter-btn" data-filter="msc">MSc</button>
+      <button class="team-filter-btn" data-filter="bsc">BSc</button>
       <button class="team-filter-btn" data-filter="internship">Interns</button>
       <button class="team-filter-btn" data-filter="visitor">Visitors</button>
     </div>
@@ -75,14 +75,11 @@ title: "Research Projects"
           <span class="team-category">{{ member.category | upcase }}</span>
           {% endif %}
           <div class="team-links">
-            {% if member.github %}
-            <a href="{{ member.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-            {% endif %}
             {% if member.email %}
             <a href="mailto:{{ member.email }}"><i class="fa-solid fa-envelope"></i></a>
             {% endif %}
             {% if member.linkedin %}
-            <a href="{{ member.linkedin }}" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="{{ member.linkedin }}" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
             {% endif %}
           </div>
           <span class="view-profile">View Profile →</span>
@@ -92,6 +89,31 @@ title: "Research Projects"
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const teamFilterBtns = document.querySelectorAll(".team-filter-btn");
+    const teamCards = document.querySelectorAll(".team-card-link");
+
+    teamFilterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        teamFilterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        
+        const filter = btn.dataset.filter;
+        
+        teamCards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === "all" || category === filter) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
+</script>
 
 <script>
   // Team filter functionality
