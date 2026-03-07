@@ -156,11 +156,8 @@ has_research_animation: true
   <div class="research-table-section" id="research-table">
     <h2 class="subsection-title">Projects, Grants & Publications</h2>
     
-    <!-- Clear Filters Button + Counter (minimal header) -->
+    <!-- Results Counter Only -->
     <div class="table-header-controls">
-      <button class="clear-filters-btn" id="clear-filters">
-        <i class="fa-solid fa-xmark"></i> Clear Filters
-      </button>
       <div class="results-counter">
         Showing <span id="visible-count">{{ site.publications.size }}</span> of {{ site.publications.size }} items
       </div>
@@ -183,8 +180,8 @@ has_research_animation: true
           {% for pub in site.publications %}
           <tr class="research-row" 
               data-type="{{ pub.type }}" 
-              data-sdgs="{{ pub.sdg_tags | join: ' ' }}" 
-              data-topics="{{ pub.topic_tags | join: ' ' }}">
+              data-sdgs="{{ pub.sdg_tags | join: ' ' | downcase }}" 
+              data-topics="{{ pub.topic_tags | join: ' ' | downcase }}">
             
             <td class="title-cell">
               <a href="{{ pub.url | relative_url }}" class="research-title-link">{{ pub.title }}</a>
@@ -197,9 +194,8 @@ has_research_animation: true
               {% if pub.sdg_tags %}
                 {% for sdg in pub.sdg_tags %}
                   <span class="table-tag sdg-tag clickable-filter" 
-                        data-filter="{{ sdg | slugify }}" 
-                        data-group="sdg"
-                        title="Filter by {{ sdg }}">
+                        data-filter="{{ sdg | downcase | replace: ' ', '-' }}" 
+                        data-group="sdg">
                     {{ sdg }}
                   </span>
                 {% endfor %}
@@ -210,9 +206,8 @@ has_research_animation: true
               {% if pub.topic_tags %}
                 {% for topic in pub.topic_tags %}
                   <span class="table-tag topic-tag clickable-filter" 
-                        data-filter="{{ topic | slugify }}" 
-                        data-group="topic"
-                        title="Filter by {{ topic }}">
+                        data-filter="{{ topic | downcase | replace: ' ', '-' }}" 
+                        data-group="topic">
                     {{ topic }}
                   </span>
                 {% endfor %}
@@ -222,8 +217,7 @@ has_research_animation: true
             <td class="type-cell">
               <span class="type-badge clickable-filter" 
                     data-filter="{{ pub.type }}" 
-                    data-group="type"
-                    title="Filter by {{ pub.type | capitalize }}">
+                    data-group="type">
                 {{ pub.type | capitalize }}
               </span>
             </td>
@@ -270,7 +264,7 @@ has_research_animation: true
     <div class="active-filters-bar" id="active-filters-bar" style="display: none;">
       <span class="active-filters-label">Active filters:</span>
       <div id="active-filters-list"></div>
-      <button class="clear-filters-btn-small" id="clear-filters-small">✕</button>
+      <button class="clear-filters-btn-small" id="clear-filters-small" title="Clear all filters">✕</button>
     </div>
     
   </div>

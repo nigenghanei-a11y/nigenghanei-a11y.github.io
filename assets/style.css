@@ -1779,6 +1779,7 @@ header {
 }
 
 /* ===== RESEARCH TABLE SECTION (CLICKABLE INLINE TAGS) ===== */
+/* ===== RESEARCH TABLE SECTION ===== */
 .research-table-section {
   padding: 3rem 0;
   background: #fff;
@@ -1787,33 +1788,10 @@ header {
 /* Table Header Controls */
 .table-header-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 1rem;
   padding: 0.5rem 0;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.clear-filters-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  background: transparent;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.clear-filters-btn:hover {
-  background: #e9ecef;
-  color: var(--text);
-  border-color: #ccc;
 }
 
 .results-counter {
@@ -1964,7 +1942,7 @@ header {
 .type-badge.grant { background: #e8f5e9; color: #388e3c; }
 .type-badge.project { background: #fff3e0; color: #f57c00; }
 
-.type-badge:hover {
+.type-badge.clickable-filter:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
@@ -2101,23 +2079,9 @@ header {
   color: var(--text);
 }
 
-/* Row Filtering Animation */
-.research-row {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
+/* Row Filtering */
 .research-row.filtered {
-  opacity: 0.35;
-  transform: scale(0.995);
-  pointer-events: none;
-}
-
-/* Prevent pointer-events on links inside filtered rows */
-.research-row.filtered a,
-.research-row.filtered .clickable-filter,
-.research-row.filtered .link-btn {
-  pointer-events: none;
-  cursor: default;
+  display: none;
 }
 
 .empty-state {
@@ -2133,16 +2097,9 @@ header {
   color: #ddd;
 }
 
-/* ===== MOBILE RESPONSIVE (Research Table) ===== */
+/* Mobile Responsive */
 @media (max-width: 900px) {
   .table-header-controls {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  
-  .clear-filters-btn {
-    width: 100%;
     justify-content: center;
   }
   
@@ -2160,7 +2117,6 @@ header {
     align-self: flex-end;
   }
   
-  /* Clickable Tags Mobile */
   .table-tag.clickable-filter,
   .type-badge.clickable-filter {
     padding: 0.4rem 0.7rem;

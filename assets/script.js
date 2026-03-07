@@ -160,24 +160,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===== Initialize Table Filter (only if table exists) =====
+  // ===== Initialize filters =====
   initResearchTableFilter();
-  
-  // Initialize team filter
   initTeamFilter();
 });
 
-// ===== RESEARCH TABLE TAG FILTERING (inline clickable tags) =====
+// ===== RESEARCH TABLE TAG FILTERING =====
 function initResearchTableFilter() {
-  // Exit if table elements don't exist
   const clickableTags = document.querySelectorAll('.clickable-filter');
-  const clearBtn = document.getElementById('clear-filters');
   const clearBtnSmall = document.getElementById('clear-filters-small');
   const tableRows = document.querySelectorAll('.research-row');
   const visibleCount = document.getElementById('visible-count');
   const activeFiltersBar = document.getElementById('active-filters-bar');
   const activeFiltersList = document.getElementById('active-filters-list');
   
+  // Exit if table doesn't exist on this page
   if (clickableTags.length === 0 || tableRows.length === 0) return;
   
   let activeFilters = {
@@ -186,14 +183,13 @@ function initResearchTableFilter() {
     type: []
   };
   
-  // Handle clicks on inline tags
+  // Handle clicks on inline tags (SDG, Topic, Type)
   clickableTags.forEach(tag => {
     tag.addEventListener('click', function(e) {
-      e.stopPropagation(); // Prevent row click interference
+      e.stopPropagation();
       
       const filter = this.dataset.filter;
       const group = this.dataset.group;
-      const displayLabel = this.textContent.trim();
       
       // Toggle this specific filter
       const groupFilters = activeFilters[group];
@@ -204,32 +200,26 @@ function initResearchTableFilter() {
         groupFilters.push(filter);
         this.classList.add('active');
       } else {
-        // Remove filter
+        // Remove filter (click again to deselect)
         groupFilters.splice(index, 1);
         this.classList.remove('active');
       }
       
-      // Update UI
       updateActiveFiltersBar();
       applyFilters();
     });
   });
   
-  // Clear all filters - main button
-  if (clearBtn) {
-    clearBtn.addEventListener('click', clearAllFilters);
-  }
-  
-  // Clear all filters - small button in active bar
+  // Clear all filters - small × button in active bar only
   if (clearBtnSmall) {
     clearBtnSmall.addEventListener('click', clearAllFilters);
   }
   
-  // Clear individual filter from active bar
+  // Remove individual filter from active bar chip
   function removeActiveFilter(group, filter) {
     activeFilters[group] = activeFilters[group].filter(f => f !== filter);
     
-    // Remove active class from corresponding tag
+    // Remove active class from corresponding tag in table
     document.querySelectorAll(`.clickable-filter[data-group="${group}"][data-filter="${filter}"]`)
       .forEach(tag => tag.classList.remove('active'));
     
@@ -237,7 +227,7 @@ function initResearchTableFilter() {
     applyFilters();
   }
   
-  // Update the active filters display bar
+  // Update the active filters display bar (shows below table)
   function updateActiveFiltersBar() {
     const allActive = [
       ...activeFilters.sdg.map(f => ({ group: 'sdg', filter: f })),
@@ -245,15 +235,18 @@ function initResearchTableFilter() {
       ...activeFilters.type.map(f => ({ group: 'type', filter: f }))
     ];
     
+    // Hide bar if no active filters
     if (allActive.length === 0) {
       if (activeFiltersBar) activeFiltersBar.style.display = 'none';
       return;
     }
     
+    // Show bar and populate with chips
     if (activeFiltersBar) activeFiltersBar.style.display = 'flex';
     
     if (activeFiltersList) {
       activeFiltersList.innerHTML = allActive.map(item => {
+        // Format label: "sdg-3" → "SDG 3"
         const label = item.filter.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
         return `
           <span class="active-filter-chip">
@@ -263,7 +256,7 @@ function initResearchTableFilter() {
         `;
       }).join('');
       
-      // Add click handlers to remove buttons
+      // Add click handlers to × buttons on chips
       activeFiltersList.querySelectorAll('.remove-filter').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -277,16 +270,10 @@ function initResearchTableFilter() {
   
   // Clear all filters function
   function clearAllFilters() {
-    // Reset state
     activeFilters = { sdg: [], topic: [], type: [] };
-    
-    // Remove active classes from all tags
     clickableTags.forEach(tag => tag.classList.remove('active'));
-    
-    // Update UI
     if (activeFiltersBar) activeFiltersBar.style.display = 'none';
     if (activeFiltersList) activeFiltersList.innerHTML = '';
-    
     applyFilters();
   }
   
@@ -299,9 +286,13 @@ function initResearchTableFilter() {
       const rowSdgs = (row.dataset.sdgs || '').toLowerCase();
       const rowTopics = (row.dataset.topics || '').toLowerCase();
       
-      // Check each group: if filters exist, row must match AT LEAST ONE (OR logic within group)
-      // If no filters in group, it passes automatically
-      const typeMatch = activeFilters.type.length === 0 || activeFilters.type.includes(rowType);
+      // Filter logic:
+      // - If no filters in a group → pass automatically
+      // - If filters exist → row must match AT LEAST ONE in that group (OR logic)
+      // - Row must pass ALL groups to show (AND logic between groups)
+      
+      const typeMatch = activeFilters.type.length === 0 || 
+        activeFilters.type.includes(rowType);
       
       const sdgMatch = activeFilters.sdg.length === 0 || 
         activeFilters.sdg.some(filter => rowSdgs.includes(filter));
@@ -309,22 +300,24 @@ function initResearchTableFilter() {
       const topicMatch = activeFilters.topic.length === 0 || 
         activeFilters.topic.some(filter => rowTopics.includes(filter));
       
-      // Row shows only if ALL groups match (AND logic between groups)
+      // Show/hide row based on all conditions
       if (typeMatch && sdgMatch && topicMatch) {
         row.classList.remove('filtered');
+        row.style.display = '';
         visible++;
       } else {
         row.classList.add('filtered');
+        row.style.display = 'none';
       }
     });
     
-    // Update counter
+    // Update visible count
     if (visibleCount) {
       visibleCount.textContent = visible;
     }
   }
   
-  // Initialize
+  // Initialize on load
   applyFilters();
 }
 
