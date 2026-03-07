@@ -27,5 +27,33 @@
   
   <!-- Your Script -->
   <script src="{{ '/assets/script.js' | relative_url }}"></script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="contact">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-email">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:your.email@university.edu">your.email@university.edu</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="social-link github">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" class="social-link twitter">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="social-link linkedin">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
 </body>
 </html>

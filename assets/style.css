@@ -2218,3 +2218,129 @@ header {
   color: var(--muted);
   margin-bottom: 0.5rem;
 }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #f9f9f9;
+  border-top: 2px solid var(--primary);
+  padding: 2rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.footer-email i {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.footer-email a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-email a:hover {
+  color: var(--primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-social .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  color: var(--text);
+  text-decoration: none;
+  border: 2px solid #ddd;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.footer-social .social-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.footer-social .social-link.github:hover {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+.footer-social .social-link.twitter:hover {
+  background: #1da1f2;
+  color: white;
+  border-color: #1da1f2;
+}
+
+.footer-social .social-link.linkedin:hover {
+  background: #0a66c2;
+  color: white;
+  border-color: #0a66c2;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Footer Mobile */
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-email {
+    justify-content: center;
+  }
+  
+  .site-footer {
+    padding: 1.5rem 0 1rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-container {
+    padding: 0 1rem;
+  }
+}
+
+/* Scroll offset for sticky header */
+#contact {
+  scroll-margin-top: 100px;
+}
