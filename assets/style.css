@@ -616,6 +616,9 @@ header {
   width: 100%;
   max-width: 220px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .team-card img,
@@ -683,7 +686,8 @@ header {
 
 .view-profile {
   display: inline-block;
-  margin-top: 0.8rem;
+  margin-top: auto;
+  margin-bottom: 0;
   font-size: 0.85rem;
   color: var(--primary);
   font-weight: 600;
