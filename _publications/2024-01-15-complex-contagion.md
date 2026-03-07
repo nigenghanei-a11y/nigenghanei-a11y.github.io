@@ -1,13 +1,11 @@
 ---
-title: "TEST PUBLICATION Complex Contagion Dynamics in Social Networks"
-type: "paper"
-date: 2024-01-15
-authors: "Negin Ghanei, Philipp Lenz, Carlos A."
-journal: "Nature Communications"
-doi: "10.1038/s41467-024-12345"
-abstract: |
-  This paper investigates the spread of behaviors and opinions in social networks
-  using complex contagion models. We demonstrate that...
-pdf: "/assets/publications/2024-complex-contagion.pdf"
-code: "https://github.com/yourusername/complex-contagion"
+layout: publication
+title: "Your Publication Title"
+type: paper # paper, grant, or project
+date: 2024-03-15
+sdg_tags: ["SDG 3", "SDG 17"] # Match the SDG names used in filters
+topic_tags: ["Disease Dynamics", "Mobility Patterns"] # Custom topic tags
+doi: "10.1038/s41586-023-06789-0" # Optional
+arxiv: "2301.12345" # Optional
+abstract: "Brief abstract or description..."
 ---

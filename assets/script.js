@@ -95,7 +95,7 @@ if (!svg.empty()) {
     labelEls
       .attr("x", d => d.x + d.r + 2)
       .attr("y", d => d.y + 3);
-    });
+  });
 }
 
 // ===== NAVBAR & SEARCH TOGGLE (runs after DOM is ready) =====
@@ -159,34 +159,133 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // ===== Initialize Table Filter (only if table exists) =====
+  initResearchTableFilter();
+  
+  // Initialize team filter
+  initTeamFilter();
 });
 
-// ===== PUBLICATION FILTER =====
-const filterBtns = document.querySelectorAll(".filter-btn");
-const pubCards = document.querySelectorAll(".pub-card");
-
-if (filterBtns.length > 0 && pubCards.length > 0) {
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      // Update active button
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+// ===== RESEARCH TABLE TAG FILTERING =====
+function initResearchTableFilter() {
+  // Exit if table elements don't exist
+  const filterChips = document.querySelectorAll('.tag-chip');
+  const clearBtn = document.getElementById('clear-filters');
+  const tableRows = document.querySelectorAll('.research-row');
+  const visibleCount = document.getElementById('visible-count');
+  
+  if (filterChips.length === 0 || tableRows.length === 0) return;
+  
+  let activeFilters = {
+    sdg: [],
+    topic: [],
+    type: ['all']
+  };
+  
+  // Handle tag chip clicks
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      const group = this.dataset.group;
       
-      const filter = btn.dataset.filter;
+      // Toggle active state
+      this.classList.toggle('active');
       
-      // Filter cards
-      pubCards.forEach(card => {
-        const type = card.dataset.type;
-        if (filter === "all" || type === filter) {
-          card.style.display = "block";
-          // Add fade-in animation
-          card.style.animation = "fadeInUp 0.4s ease-out forwards";
+      // Update activeFilters
+      if (this.classList.contains('active')) {
+        if (filter === 'all' && group === 'type') {
+          // Special case: "All" clears other type filters
+          activeFilters.type = ['all'];
+          // Deactivate other type chips
+          document.querySelectorAll('#type-filters .tag-chip[data-filter!="all"]').forEach(c => {
+            c.classList.remove('active');
+          });
         } else {
-          card.style.display = "none";
+          if (filter !== 'all') {
+            // Remove 'all' if selecting specific type
+            if (group === 'type') {
+              activeFilters.type = activeFilters.type.filter(f => f !== 'all');
+              document.querySelector('#type-filters .tag-chip[data-filter="all"]')?.classList.remove('active');
+            }
+            activeFilters[group].push(filter);
+          }
         }
-      });
+      } else {
+        activeFilters[group] = activeFilters[group].filter(f => f !== filter);
+        // If all type filters removed, activate 'all'
+        if (group === 'type' && activeFilters.type.length === 0) {
+          activeFilters.type = ['all'];
+          document.querySelector('#type-filters .tag-chip[data-filter="all"]')?.classList.add('active');
+        }
+      }
+      
+      applyFilters();
     });
   });
+  
+  // Clear all filters
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      filterChips.forEach(chip => {
+        if (chip.dataset.filter === 'all' && chip.dataset.group === 'type') {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+      
+      activeFilters = {
+        sdg: [],
+        topic: [],
+        type: ['all']
+      };
+      
+      applyFilters();
+    });
+  }
+  
+  // Apply filters to table rows
+  function applyFilters() {
+    let visible = 0;
+    
+    tableRows.forEach(row => {
+      const rowType = row.dataset.type;
+      const rowSdgs = (row.dataset.sdgs || '').toLowerCase().split(' ');
+      const rowTopics = (row.dataset.topics || '').toLowerCase().split(' ');
+      
+      // Type filter
+      const typeMatch = activeFilters.type.includes('all') || activeFilters.type.includes(rowType);
+      
+      // SDG filter (OR logic within group)
+      const sdgMatch = activeFilters.sdg.length === 0 || 
+        activeFilters.sdg.some(filter => 
+          rowSdgs.some(sdg => sdg.includes(filter.replace('sdg-', '')))
+        );
+      
+      // Topic filter (OR logic within group)
+      const topicMatch = activeFilters.topic.length === 0 || 
+        activeFilters.topic.some(filter => 
+          rowTopics.some(topic => topic.includes(filter.replace('topic-', '')))
+        );
+      
+      // Show row if ALL groups match (AND logic between groups)
+      if (typeMatch && sdgMatch && topicMatch) {
+        row.classList.remove('filtered');
+        visible++;
+      } else {
+        row.classList.add('filtered');
+      }
+    });
+    
+    // Update counter
+    if (visibleCount) {
+      visibleCount.textContent = visible;
+    }
+  }
+  
+  // Initialize
+  applyFilters();
 }
 
 // ===== TEAM FILTER FUNCTIONALITY =====
@@ -217,6 +316,3 @@ function initTeamFilter() {
     });
   });
 }
-
-// Initialize when DOM is ready
-document.addEventListener("DOMContentLoaded", initTeamFilter);
