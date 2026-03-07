@@ -1,3 +1,3 @@
-﻿title,type,date,sdg_tags,topic_tags,doi,arxiv,abstract
-Machine Learning for Climate Prediction,paper,3/15/2024,SDG 13|SDG 9,Climate Action|Machine Learning,10.1038/s41586-024-00001-0,201.1345,Abstract text here...
-Urban Mobility During Pandemics,paper,2/20/2024,SDG 3|SDG 11,Mobility Patterns|Public Health,10.1016/j.city.2024.001,,Study of movement patterns...
+﻿title,type,date,sdg_tags,topic_tags,doi,arxiv,abstract,title
+Machine Learning for Climate Prediction,paper,3/15/2024,SDG 13|SDG 9,Climate Action|Machine Learning,10.1038/s41586-024-00001-0,201.1345,Abstract text here...,Machine Learning for Climate Prediction
+Urban Mobility During Pandemics,paper,2/20/2024,SDG 3|SDG 11,Mobility Patterns|Public Health,10.1016/j.city.2024.001,,Study of movement patterns...,Urban Mobility During Pandemics
