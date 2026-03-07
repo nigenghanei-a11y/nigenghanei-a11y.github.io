@@ -1,4 +1,4 @@
 name,role,status,image,email,linkedin,twitter,github,order
-Jane Smith,Postdoctoral Researcher,active,/assets/images/profile.jpg,jane@uni.edu,https://linkedin.com/in/jane,,https://github.com/jane,1
-John Doe,PhD Student,active,/assets/images/profile.jpg,john@uni.edu,,@johndoe,https://github.com/john,2
-Former Member,Alumni Researcher,alumni,/assets/images/profile.jpg,former@uni.edu,,,,
+Jane Smith,Postdoctoral Researcher,active,/assets/images/profile.jpg,jane@uni,https://linkedin,,https://github.come,1
+John Doe,PhD Student,active,/assets/images/profile.jpg,john@uni,,,https://github.com,2
+Former Member,Alumni Researcher,alumni,/assets/images/profile.jpg,former@uni,,,,
