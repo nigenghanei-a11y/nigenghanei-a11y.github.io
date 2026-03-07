@@ -287,73 +287,97 @@ has_research_animation: true
               data-sdgs="{{ pub.sdg_tags | downcase | replace: '|', ' ' | replace: ' ', '-' }}" 
               data-topics="{{ pub.topic_tags | downcase | replace: '|', ' ' | replace: ' ', '-' }}">
             
+            <!-- Title Cell -->
             <td class="title-cell">
-              <span class="research-title-link">{{ pub.title }}</span>
-              {% if pub.abstract %}
-              <p class="research-excerpt">{{ pub.abstract | truncatewords: 12 }}</p>
+              {% if pub.title and pub.title != empty %}
+                <span class="research-title-link">{{ pub.title }}</span>
+              {% else %}
+                <span class="research-title-link" style="color: var(--muted); font-style: italic;">[No title]</span>
+              {% endif %}
+              
+              {% if pub.abstract and pub.abstract != empty %}
+                <p class="research-excerpt">{{ pub.abstract | truncatewords: 12 }}</p>
               {% endif %}
             </td>
             
+            <!-- SDG Tags Cell -->
             <td class="tags-cell">
-              {% if pub.sdg_tags %}
+              {% if pub.sdg_tags and pub.sdg_tags != empty %}
                 {% assign sdgs = pub.sdg_tags | split: '|' %}
                 {% for sdg in sdgs %}
-                  <span class="table-tag sdg-tag clickable-filter" 
-                        data-filter="{{ sdg | downcase | replace: ' ', '-' }}" 
-                        data-group="sdg">
-                    {{ sdg }}
-                  </span>
+                  {% assign sdg_trimmed = sdg | strip %}
+                  {% if sdg_trimmed != empty %}
+                    <span class="table-tag sdg-tag clickable-filter" 
+                          data-filter="{{ sdg_trimmed | downcase | replace: ' ', '-' }}" 
+                          data-group="sdg">
+                      {{ sdg_trimmed }}
+                    </span>
+                  {% endif %}
                 {% endfor %}
               {% endif %}
             </td>
             
+            <!-- Topic Tags Cell -->
             <td class="tags-cell">
-              {% if pub.topic_tags %}
+              {% if pub.topic_tags and pub.topic_tags != empty %}
                 {% assign topics = pub.topic_tags | split: '|' %}
                 {% for topic in topics %}
-                  <span class="table-tag topic-tag clickable-filter" 
-                        data-filter="{{ topic | downcase | replace: ' ', '-' }}" 
-                        data-group="topic">
-                    {{ topic }}
-                  </span>
+                  {% assign topic_trimmed = topic | strip %}
+                  {% if topic_trimmed != empty %}
+                    <span class="table-tag topic-tag clickable-filter" 
+                          data-filter="{{ topic_trimmed | downcase | replace: ' ', '-' }}" 
+                          data-group="topic">
+                      {{ topic_trimmed }}
+                    </span>
+                  {% endif %}
                 {% endfor %}
               {% endif %}
             </td>
             
+            <!-- Type Badge Cell -->
             <td class="type-cell">
-              <span class="type-badge clickable-filter" 
-                    data-filter="{{ pub.type }}" 
-                    data-group="type">
-                {{ pub.type | capitalize }}
-              </span>
+              {% if pub.type and pub.type != empty %}
+                <span class="type-badge clickable-filter" 
+                      data-filter="{{ pub.type }}" 
+                      data-group="type">
+                  {{ pub.type | capitalize }}
+                </span>
+              {% endif %}
             </td>
             
-            <td class="date-cell">{{ pub.date | date: "%b %Y" }}</td>
+            <!-- Date Cell -->
+            <td class="date-cell">
+              {% if pub.date %}
+                {{ pub.date | date: "%b %Y" }}
+              {% endif %}
+            </td>
             
+            <!-- Links Cell -->
             <td class="links-cell">
               <div class="link-buttons">
-                {% if pub.doi %}
-                <a href="https://doi.org/{{ pub.doi }}" target="_blank" rel="noopener" 
-                   class="link-btn doi-btn" title="View DOI">
-                  <i class="fa-solid fa-link"></i> DOI
-                </a>
+                {% if pub.doi and pub.doi != empty %}
+                  <a href="https://doi.org/{{ pub.doi | strip }}" target="_blank" rel="noopener" 
+                     class="link-btn doi-btn" title="View DOI">
+                    <i class="fa-solid fa-link"></i> DOI
+                  </a>
                 {% endif %}
                 
-                {% if pub.arxiv %}
-                <a href="https://arxiv.org/abs/{{ pub.arxiv }}" target="_blank" rel="noopener" 
-                   class="link-btn arxiv-btn" title="View on arXiv">
-                  <i class="fa-brands fa-arxiv"></i> arXiv
-                </a>
+                {% if pub.arxiv and pub.arxiv != empty %}
+                  <a href="https://arxiv.org/abs/{{ pub.arxiv | strip }}" target="_blank" rel="noopener" 
+                     class="link-btn arxiv-btn" title="View on arXiv">
+                    <i class="fa-brands fa-arxiv"></i> arXiv
+                  </a>
                 {% endif %}
                 
                 {% unless pub.doi or pub.arxiv %}
-                <span class="no-links">—</span>
+                  <span class="no-links">—</span>
                 {% endunless %}
               </div>
             </td>
           </tr>
           {% endfor %}
           
+          <!-- Empty State -->
           {% if site.data.publications.size == 0 %}
           <tr>
             <td colspan="6" class="empty-state">
