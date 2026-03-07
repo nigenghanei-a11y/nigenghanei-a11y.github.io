@@ -631,84 +631,13 @@ header {
   display: inline-block;
 }
 
-/* ===== PROJECT INLINE TAGS ===== */
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-  align-items: center;
-}
-
-.project-tag {
-  font-size: 0.7rem;              /* Smaller font */
-  padding: 0.2rem 0.5rem;         /* Compact padding */
-  border-radius: 12px;            /* Softer corners */
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-/* Topic tags - orange/amber */
-.project-tag.topic-tag {
-  background: #fff3e0;
-  color: #f57c00;
-  border: 1px solid #ffe0b2;
-}
-
-/* SDG tags - keep your existing colors */
-.project-tag.sdg-tag.sdg-3 { background: #4CAF50; color: white; border: none; }
-.project-tag.sdg-tag.sdg-9 { background: #FF6A00; color: white; border: none; }
-.project-tag.sdg-tag.sdg-13 { background: #4CAF50; color: white; border: none; }
-.project-tag.sdg-tag.sdg-14 { background: #2196F3; color: white; border: none; }
-.project-tag.sdg-tag.sdg-15 { background: #8BC34A; color: white; border: none; }
-.project-tag.sdg-tag.sdg-17 { background: #1976D2; color: white; border: none; }
-
-/* Clickable behavior for project tags */
-.project-tag.clickable-filter {
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-  position: relative;
-}
-
-.project-tag.clickable-filter:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  filter: brightness(1.05);
-}
-
-.project-tag.clickable-filter.active {
-  outline: 2px solid var(--primary);
-  outline-offset: 1px;
-  font-weight: 700;
-}
-
-/* Active indicator dot */
-.project-tag.clickable-filter.active::after {
-  content: "";
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 6px;
-  height: 6px;
-  background: var(--primary);
-  border-radius: 50%;
-  border: 1px solid white;
-}
-
-/* Mobile: adjust tag sizing */
-@media (max-width: 900px) {
-  .project-tags {
-    gap: 0.3rem;
-  }
-  
-  .project-tag {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.4rem;
-  }
-}
+/* Consistent SDG colors matching your design */
+.sdg-3 { background: #4CAF50; }      /* Green - Good Health */
+.sdg-9 { background: #FF6A00; }      /* Orange - Industry & Infrastructure */
+.sdg-13 { background: #4CAF50; }     /* Green - Climate Action */
+.sdg-14 { background: #2196F3; }     /* Blue - Life Below Water */
+.sdg-15 { background: #8BC34A; }     /* Light Green - Life on Land */
+.sdg-17 { background: #1976D2; }     /* Blue - Partnerships */
 
 /* Make SDG tags clickable in all sections */
 .sdg-tag.clickable-filter {
