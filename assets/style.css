@@ -678,6 +678,7 @@ header {
   color: inherit;
   display: flex;
   flex-direction: column;
+  align-items: center;
   max-width: 220px;
   margin: 0 auto;
 }
