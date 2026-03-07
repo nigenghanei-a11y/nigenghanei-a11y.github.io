@@ -39,7 +39,12 @@ has_research_animation: true
           <strong>One Health approach</strong>, integrating human, animal, and environmental health.
         </p>
         <div class="sdg-tags">
-          <span class="sdg-tag sdg-3">SDG 3: Good Health</span>
+          <span class="sdg-tag sdg-3 clickable-filter" 
+                data-filter="sdg-3" 
+                data-group="sdg"
+                title="Filter by SDG 3">
+            SDG 3: Good Health
+          </span>
         </div>
       </div>
 
@@ -54,8 +59,18 @@ has_research_animation: true
           ecosystem stability.
         </p>
         <div class="sdg-tags">
-          <span class="sdg-tag sdg-14">SDG 14: Life Below Water</span>
-          <span class="sdg-tag sdg-15">SDG 15: Life on Land</span>
+          <span class="sdg-tag sdg-14 clickable-filter" 
+                data-filter="sdg-14" 
+                data-group="sdg"
+                title="Filter by SDG 14">
+            SDG 14: Life Below Water
+          </span>
+          <span class="sdg-tag sdg-15 clickable-filter" 
+                data-filter="sdg-15" 
+                data-group="sdg"
+                title="Filter by SDG 15">
+            SDG 15: Life on Land
+          </span>
         </div>
       </div>
 
@@ -70,7 +85,12 @@ has_research_animation: true
           implications for public health, sustainability, and societal stability.
         </p>
         <div class="sdg-tags">
-          <span class="sdg-tag sdg-9">SDG 9: Industry & Infrastructure</span>
+          <span class="sdg-tag sdg-9 clickable-filter" 
+                data-filter="sdg-9" 
+                data-group="sdg"
+                title="Filter by SDG 9">
+            SDG 9: Industry & Infrastructure
+          </span>
         </div>
       </div>
 
@@ -85,7 +105,12 @@ has_research_animation: true
           climate mitigation pathways.
         </p>
         <div class="sdg-tags">
-          <span class="sdg-tag sdg-13">SDG 13: Climate Action</span>
+          <span class="sdg-tag sdg-13 clickable-filter" 
+                data-filter="sdg-13" 
+                data-group="sdg"
+                title="Filter by SDG 13">
+            SDG 13: Climate Action
+          </span>
         </div>
       </div>
 
@@ -100,7 +125,12 @@ has_research_animation: true
           collection, analysis, and collaboration with professional scientists.
         </p>
         <div class="sdg-tags">
-          <span class="sdg-tag sdg-17">SDG 17: Partnerships</span>
+          <span class="sdg-tag sdg-17 clickable-filter" 
+                data-filter="sdg-17" 
+                data-group="sdg"
+                title="Filter by SDG 17">
+            SDG 17: Partnerships
+          </span>
         </div>
       </div>
 
@@ -113,24 +143,63 @@ has_research_animation: true
       <div class="project-item">
         <i class="fa-solid fa-flask project-icon"></i>
         <div class="project-info">
-          <h4>Detecting Critical Transitions in Wastewater Systems</h4>
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="critical-transitions" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Detecting Critical Transitions in Wastewater Systems
+            </span>
+          </h4>
           <p>Early warning systems for infrastructure resilience using time series analysis.</p>
+          <span class="sdg-tag sdg-9 clickable-filter" 
+                data-filter="sdg-9" 
+                data-group="sdg"
+                title="Filter by SDG 9">
+            SDG 9
+          </span>
         </div>
       </div>
 
       <div class="project-item">
         <i class="fa-solid fa-person-walking project-icon"></i>
         <div class="project-info">
-          <h4>Mobility Patterns and Behavioral Responses During Epidemics</h4>
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="mobility-patterns" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Mobility Patterns and Behavioral Responses During Epidemics
+            </span>
+          </h4>
           <p>Analysis of human movement data to understand disease spread dynamics.</p>
+          <span class="sdg-tag sdg-3 clickable-filter" 
+                data-filter="sdg-3" 
+                data-group="sdg"
+                title="Filter by SDG 3">
+            SDG 3
+          </span>
         </div>
       </div>
 
       <div class="project-item">
         <i class="fa-solid fa-comments project-icon"></i>
         <div class="project-info">
-          <h4>Opinion Dynamics and Polarization in Social Systems</h4>
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="opinion-dynamics" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Opinion Dynamics and Polarization in Social Systems
+            </span>
+          </h4>
           <p>Network-based models of information spread and social influence.</p>
+          <span class="sdg-tag sdg-17 clickable-filter" 
+                data-filter="sdg-17" 
+                data-group="sdg"
+                title="Filter by SDG 17">
+            SDG 17
+          </span>
         </div>
       </div>
     </div>
@@ -180,8 +249,8 @@ has_research_animation: true
           {% for pub in site.publications %}
           <tr class="research-row" 
               data-type="{{ pub.type }}" 
-              data-sdgs="{{ pub.sdg_tags | join: ' ' | downcase }}" 
-              data-topics="{{ pub.topic_tags | join: ' ' | downcase }}">
+              data-sdgs="{{ pub.sdg_tags | join: ' ' | downcase | replace: ' ', '-' }}" 
+              data-topics="{{ pub.topic_tags | join: ' ' | downcase | replace: ' ', '-' }}">
             
             <td class="title-cell">
               <a href="{{ pub.url | relative_url }}" class="research-title-link">{{ pub.title }}</a>

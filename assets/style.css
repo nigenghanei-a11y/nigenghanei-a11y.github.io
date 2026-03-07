@@ -151,7 +151,6 @@ header {
   height: auto;
 }
 
-/* Responsive adjustments */
 @media (min-width: 900px) {
   .hero-section {
     flex-direction: row;
@@ -215,7 +214,6 @@ header {
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-/* News Card Image - SMALLER (150px) */
 .news-card-image {
   width: 100%;
   height: 150px;
@@ -359,13 +357,11 @@ header {
     text-align: center;
   }
   
-  /* Position nav-right for dropdowns */
   .nav-right {
     position: relative;
     gap: 0.5rem;
   }
   
-  /* ===== MENU DROPDOWN - Improved ===== */
   .nav-links {
     display: none;
     flex-direction: column;
@@ -384,25 +380,12 @@ header {
   }
   
   @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
-  .nav-links.active {
-    display: flex !important;
-  }
-  
-  .nav-links li {
-    width: 100%;
-    padding: 0 1rem;
-  }
-  
+  .nav-links.active { display: flex !important; }
+  .nav-links li { width: 100%; padding: 0 1rem; }
   .nav-links a {
     display: block;
     padding: 0.8rem 1rem;
@@ -410,14 +393,12 @@ header {
     transition: all 0.2s ease;
     text-align: right;
   }
-  
   .nav-links a:hover {
     background: rgba(255, 106, 0, 0.08);
     transform: translateX(-4px);
     color: var(--primary);
   }
   
-  /* ===== SEARCH DROPDOWN - Improved ===== */
   .nav-search {
     display: none;
     position: absolute;
@@ -476,11 +457,6 @@ header {
     box-shadow: 0 4px 8px rgba(255, 106, 0, 0.3);
   }
   
-  .nav-search button i {
-    font-size: 1.1rem;
-  }
-  
-  /* ===== TOGGLE BUTTONS ===== */
   .nav-toggle,
   .nav-search-toggle {
     display: block;
@@ -499,35 +475,13 @@ header {
     background: rgba(0, 0, 0, 0.05);
   }
   
-  /* Hide regular nav items on mobile */
   .nav-links:not(.active),
-  .nav-search:not(.active) {
-    display: none;
-  }
-  
-  /* Adjust navbar padding on mobile */
-  .navbar {
-    padding: 0.8rem 1rem;
-  }
-  
-  /* News grid on mobile */
-  .news-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Team grid on mobile */
-  .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-  
-  .team-card {
-    max-width: 180px;
-  }
-  
-  .team-card img {
-    width: 120px;
-    height: 120px;
-  }
+  .nav-search:not(.active) { display: none; }
+  .navbar { padding: 0.8rem 1rem; }
+  .news-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .team-card { max-width: 180px; }
+  .team-card img { width: 120px; height: 120px; }
 }
 
 /* ===== RESEARCH SECTION ===== */
@@ -571,7 +525,6 @@ header {
   -ms-hyphens: auto;
 }
 
-/* Paragraph indentation for 2nd+ paragraphs */
 .research-content p + p {
   text-indent: 1.5rem;
   margin-top: 0;
@@ -583,9 +536,7 @@ header {
   border-bottom: 2px solid var(--primary);
 }
 
-.research-content a:hover {
-  opacity: 0.8;
-}
+.research-content a:hover { opacity: 0.8; }
 
 .subsection-title {
   text-align: center;
@@ -605,7 +556,6 @@ header {
   border-radius: 2px;
 }
 
-/* Research Grid */
 .research-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -648,7 +598,6 @@ header {
   line-height: 1.5;
 }
 
-/* SDG Tags */
 .sdg-tags {
   display: flex;
   flex-wrap: wrap;
@@ -672,7 +621,6 @@ header {
 .sdg-15 { background: #56C02B; }
 .sdg-17 { background: #19486A; }
 
-/* Projects List */
 .projects-list {
   max-width: 800px;
   margin: 0 auto 3rem;
@@ -707,7 +655,6 @@ header {
   line-height: 1.5;
 }
 
-/* Mission Box */
 .mission-box {
   display: flex;
   align-items: center;
@@ -736,26 +683,15 @@ header {
   opacity: 0.95;
 }
 
-/* Mobile Responsive */
 @media (max-width: 900px) {
-  .research-section {
-    padding: 2rem 0;
-  }
-  
-  .research-content {
-    padding: 0 1rem;
-  }
-  
-  .research-grid {
-    grid-template-columns: 1fr;
-  }
-  
+  .research-section { padding: 2rem 0; }
+  .research-content { padding: 0 1rem; }
+  .research-grid { grid-template-columns: 1fr; }
   .mission-box {
     flex-direction: column;
     text-align: center;
     margin: 0 1rem;
   }
-  
   .project-item {
     flex-direction: column;
     align-items: center;
@@ -765,29 +701,13 @@ header {
 
 /* ===== RESEARCH PAGE ANIMATIONS ===== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.fade-in-delay-1 {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.3s forwards;
-}
-
-.fade-in-delay-2 {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out 0.6s forwards;
-}
+.fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+.fade-in-delay-1 { opacity: 0; animation: fadeInUp 0.8s ease-out 0.3s forwards; }
+.fade-in-delay-2 { opacity: 0; animation: fadeInUp 0.8s ease-out 0.6s forwards; }
 
 .research-header .section-title {
   font-size: 2.2rem;
@@ -809,11 +729,7 @@ header {
   animation: expandLine 1s ease-out 0.5s forwards;
 }
 
-@keyframes expandLine {
-  to {
-    width: 100px;
-  }
-}
+@keyframes expandLine { to { width: 100px; } }
 
 /* ===== NEWS POST DETAIL PAGE ===== */
 .news-post-detail {
@@ -833,9 +749,7 @@ header {
   transition: color 0.2s ease;
 }
 
-.back-btn:hover {
-  color: var(--primary);
-}
+.back-btn:hover { color: var(--primary); }
 
 .post-header {
   margin-bottom: 2.5rem;
@@ -881,9 +795,7 @@ header {
   color: var(--muted);
 }
 
-.post-content p {
-  margin-bottom: 1.2rem;
-}
+.post-content p { margin-bottom: 1.2rem; }
 
 .post-content h2 {
   font-size: 1.5rem;
@@ -903,9 +815,7 @@ header {
   border-bottom: 2px solid var(--primary);
 }
 
-.post-content a:hover {
-  opacity: 0.8;
-}
+.post-content a:hover { opacity: 0.8; }
 
 .post-content ul,
 .post-content ol {
@@ -941,19 +851,6 @@ header {
   margin: 1.5rem 0;
 }
 
-/* Mobile Responsive */
-@media (max-width: 900px) {
-  .post-title {
-    font-size: 1.8rem;
-  }
-  
-  .post-content {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-}
-
-/* Inline images in post content */
 .post-content img {
   max-width: 100%;
   height: auto;
@@ -963,7 +860,6 @@ header {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Image with caption */
 .post-figure {
   margin: 2rem auto;
   text-align: center;
@@ -1020,7 +916,15 @@ header {
 .share-btn.linkedin:hover { background: #0a66c2; }
 .share-btn.email:hover { background: #ea4335; }
 
-/* ===== PUBLICATIONS SECTION (on research page) ===== */
+@media (max-width: 900px) {
+  .post-title { font-size: 1.8rem; }
+  .post-content {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* ===== PUBLICATIONS SECTION ===== */
 .publications-section {
   margin-top: 5rem;
   padding-top: 3rem;
@@ -1191,18 +1095,13 @@ header {
   color: var(--muted);
 }
 
-.pub-meta-box strong {
-  color: var(--text);
-}
-
+.pub-meta-box strong { color: var(--text); }
 .pub-meta-box a {
   color: var(--primary);
   text-decoration: none;
 }
 
-.pub-abstract {
-  margin-bottom: 2.5rem;
-}
+.pub-abstract { margin-bottom: 2.5rem; }
 
 .pub-abstract h2 {
   font-size: 1.4rem;
@@ -1252,43 +1151,19 @@ header {
   color: white;
 }
 
-/* ===== MOBILE RESPONSIVE (Publications) ===== */
 @media (max-width: 900px) {
-  .post-title {
-    font-size: 1.8rem;
-  }
-  
-  .post-content {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-  
-  .pub-grid {
-    grid-template-columns: 1fr;
-  }
-  
+  .pub-grid { grid-template-columns: 1fr; }
   .pub-filter-tabs {
     flex-direction: column;
     align-items: center;
   }
-  
   .filter-btn {
     width: 100%;
     max-width: 250px;
   }
-  
-  .pub-card h3 {
-    min-height: auto;
-  }
-  
-  .pub-card p {
-    min-height: auto;
-  }
-  
-  .pub-actions {
-    flex-direction: column;
-  }
-  
+  .pub-card h3 { min-height: auto; }
+  .pub-card p { min-height: auto; }
+  .pub-actions { flex-direction: column; }
   .pub-action-btn {
     width: 100%;
     justify-content: center;
@@ -1313,9 +1188,7 @@ header {
   border-radius: 12px;
 }
 
-.member-image {
-  flex-shrink: 0;
-}
+.member-image { flex-shrink: 0; }
 
 .member-image img {
   width: 200px;
@@ -1341,9 +1214,7 @@ header {
   opacity: 0.8;
 }
 
-.member-info {
-  flex: 1;
-}
+.member-info { flex: 1; }
 
 .member-name {
   font-size: 2rem;
@@ -1389,10 +1260,7 @@ header {
   transition: all 0.2s ease;
 }
 
-.social-link:hover {
-  transform: translateY(-2px);
-}
-
+.social-link:hover { transform: translateY(-2px); }
 .social-link.github:hover { background: #333; color: white; border-color: #333; }
 .social-link.twitter:hover { background: #1da1f2; color: white; border-color: #1da1f2; }
 .social-link.linkedin:hover { background: #0a66c2; color: white; border-color: #0a66c2; }
@@ -1451,7 +1319,6 @@ header {
   line-height: 1.6;
 }
 
-/* Team Card Link (makes entire card clickable) */
 .team-card-link {
   text-decoration: none;
   color: inherit;
@@ -1472,23 +1339,17 @@ header {
   transition: gap 0.2s ease;
 }
 
-/* Mobile Responsive for Team Member Pages */
 @media (max-width: 900px) {
   .member-profile {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  
-  .member-social {
-    justify-content: center;
-  }
-  
+  .member-social { justify-content: center; }
   .member-interests li {
     display: block;
     margin: 0.5rem 0;
   }
-  
   .team-card img {
     width: 120px;
     height: 120px;
@@ -1694,30 +1555,18 @@ header {
   color: white;
 }
 
-/* Mobile Responsive */
 @media (max-width: 900px) {
-  .teaching-grid {
-    grid-template-columns: 1fr;
-  }
-  
+  .teaching-grid { grid-template-columns: 1fr; }
   .teaching-filter-tabs {
     flex-direction: column;
     align-items: center;
   }
-  
   .teaching-filter-tabs .filter-btn {
     width: 100%;
     max-width: 250px;
   }
-  
-  .project-title {
-    font-size: 1.6rem;
-  }
-  
-  .project-actions {
-    flex-direction: column;
-  }
-  
+  .project-title { font-size: 1.6rem; }
+  .project-actions { flex-direction: column; }
   .project-action-btn {
     width: 100%;
     justify-content: center;
@@ -1778,14 +1627,12 @@ header {
   margin-bottom: 0.5rem;
 }
 
-/* ===== RESEARCH TABLE SECTION (CLICKABLE INLINE TAGS) ===== */
 /* ===== RESEARCH TABLE SECTION ===== */
 .research-table-section {
   padding: 3rem 0;
   background: #fff;
 }
 
-/* Table Header Controls */
 .table-header-controls {
   display: flex;
   justify-content: flex-end;
@@ -1800,7 +1647,6 @@ header {
   font-weight: 500;
 }
 
-/* Table Container */
 .table-responsive {
   overflow-x: auto;
   border-radius: 12px;
@@ -1832,14 +1678,9 @@ header {
   vertical-align: top;
 }
 
-.research-table tr:hover {
-  background: #fafafa;
-}
+.research-table tr:hover { background: #fafafa; }
 
-/* Title Cell */
-.title-cell {
-  min-width: 280px;
-}
+.title-cell { min-width: 280px; }
 
 .research-title-link {
   font-weight: 600;
@@ -1862,10 +1703,7 @@ header {
   line-height: 1.5;
 }
 
-/* Tags Cells */
-.tags-cell {
-  min-width: 180px;
-}
+.tags-cell { min-width: 180px; }
 
 .table-tag {
   display: inline-block;
@@ -1888,9 +1726,11 @@ header {
   color: #f57c00;
 }
 
-/* Clickable Tags */
+/* Clickable Tags - Table & Research Cards */
 .table-tag.clickable-filter,
-.type-badge.clickable-filter {
+.type-badge.clickable-filter,
+.research-card .sdg-tag.clickable-filter,
+.project-info .sdg-tag.clickable-filter {
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
@@ -1900,22 +1740,27 @@ header {
 }
 
 .table-tag.clickable-filter:hover,
-.type-badge.clickable-filter:hover {
+.type-badge.clickable-filter:hover,
+.research-card .sdg-tag.clickable-filter:hover,
+.project-info .sdg-tag.clickable-filter:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   filter: brightness(0.95);
 }
 
 .table-tag.clickable-filter.active,
-.type-badge.clickable-filter.active {
+.type-badge.clickable-filter.active,
+.research-card .sdg-tag.clickable-filter.active,
+.project-info .sdg-tag.clickable-filter.active {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   font-weight: 600;
 }
 
-/* Visual hint: small dot indicator for active filters */
 .table-tag.clickable-filter.active::after,
-.type-badge.clickable-filter.active::after {
+.type-badge.clickable-filter.active::after,
+.research-card .sdg-tag.clickable-filter.active::after,
+.project-info .sdg-tag.clickable-filter.active::after {
   content: "";
   position: absolute;
   top: -4px;
@@ -1927,7 +1772,18 @@ header {
   border: 2px solid white;
 }
 
-/* Type Badge */
+/* Project title clickable */
+.project-info h4 .clickable-filter {
+  cursor: pointer;
+  transition: color 0.2s;
+  border-bottom: 2px dashed transparent;
+}
+
+.project-info h4 .clickable-filter:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
 .type-badge {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -1947,17 +1803,13 @@ header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Date Cell */
 .date-cell {
   white-space: nowrap;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-/* Links Cell */
-.links-cell {
-  min-width: 140px;
-}
+.links-cell { min-width: 140px; }
 
 .link-buttons {
   display: flex;
@@ -2080,9 +1932,7 @@ header {
 }
 
 /* Row Filtering */
-.research-row.filtered {
-  display: none;
-}
+.research-row.filtered { display: none; }
 
 .empty-state {
   text-align: center;
@@ -2097,11 +1947,9 @@ header {
   color: #ddd;
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - Research Table */
 @media (max-width: 900px) {
-  .table-header-controls {
-    justify-content: center;
-  }
+  .table-header-controls { justify-content: center; }
   
   .active-filters-bar {
     flex-direction: column;
@@ -2109,13 +1957,8 @@ header {
     gap: 0.5rem;
   }
   
-  #active-filters-list {
-    width: 100%;
-  }
-  
-  .clear-filters-btn-small {
-    align-self: flex-end;
-  }
+  #active-filters-list { width: 100%; }
+  .clear-filters-btn-small { align-self: flex-end; }
   
   .table-tag.clickable-filter,
   .type-badge.clickable-filter {
@@ -2123,9 +1966,7 @@ header {
     margin: 0.2rem 0.1rem;
   }
   
-  .research-table thead {
-    display: none;
-  }
+  .research-table thead { display: none; }
   
   .research-table,
   .research-table tbody,
@@ -2149,9 +1990,7 @@ header {
     position: relative;
   }
   
-  .research-table td:last-child {
-    border-bottom: none;
-  }
+  .research-table td:last-child { border-bottom: none; }
   
   .research-table td::before {
     content: attr(data-label);
