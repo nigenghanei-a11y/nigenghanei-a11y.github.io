@@ -2401,3 +2401,94 @@ header {
     display: none;
   }
 }
+
+/* ===== USEFUL LINKS PAGE ===================================================================== */
+.useful-links-section {
+  background: #ffffff;
+  padding: 4rem 0;
+  min-height: 80vh;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.links-card {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.links-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.links-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.links-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+
+.links-subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-list li {
+  margin-bottom: 0.6rem;
+}
+
+.links-list li a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.links-list li a::before {
+  content: "→";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.links-list li a:hover {
+  color: var(--primary);
+}
+
+/* Useful Links - Mobile */
+@media (max-width: 900px) {
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .useful-links-section {
+    padding: 2rem 0;
+  }
+  
+  .links-card {
+    padding: 1.5rem;
+  }
+}
