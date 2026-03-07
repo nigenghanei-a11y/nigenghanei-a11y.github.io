@@ -318,3 +318,42 @@ function initTeamFilter() {
     });
   });
 }
+
+// Inside initResearchTableFilter(), add this to the tag click handler:
+
+clickableTags.forEach(tag => {
+  tag.addEventListener('click', function(e) {
+    e.stopPropagation();
+    
+    const filter = this.dataset.filter;
+    const group = this.dataset.group;
+    
+    // Toggle filter
+    const groupFilters = activeFilters[group];
+    const index = groupFilters.indexOf(filter);
+    
+    if (index === -1) {
+      groupFilters.push(filter);
+      this.classList.add('active');
+    } else {
+      groupFilters.splice(index, 1);
+      this.classList.remove('active');
+    }
+    
+    updateActiveFiltersBar();
+    applyFilters();
+    
+    // ✅ SCROLL TO TABLE if clicking from projects/research cards (not from table itself)
+    if (!this.closest('.research-table')) {
+      const tableSection = document.getElementById('research-table');
+      if (tableSection) {
+        setTimeout(() => {
+          tableSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 250); // Small delay for filter to apply first
+      }
+    }
+  });
+});
