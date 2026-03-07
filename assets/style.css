@@ -624,7 +624,7 @@ header {
   width: 100%;
   max-width: 220px;
   margin: 0 auto;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
 }
 
 .team-card img,
