@@ -137,84 +137,137 @@ has_research_animation: true
     </div>
 
     <!-- Representative Projects -->
-    <!-- Representative Projects -->
-<h2 class="subsection-title">Representative Projects</h2>
-
-<div class="projects-list">
-  
-  <!-- Project 1 -->
-  <div class="project-item">
-    <i class="fa-solid fa-flask project-icon"></i>
-    <div class="project-info">
-      <h4>
-        <span class="clickable-filter" 
-              data-filter="critical-transitions" 
-              data-group="topic"
-              title="Click to filter by this topic">
-          Detecting Critical Transitions in Wastewater Systems
-        </span>
-      </h4>
-      <p>Early warning systems for infrastructure resilience using time series analysis.</p>
+    <h2 class="subsection-title">Representative Projects</h2>
+    
+    <div class="projects-list">
       
-      <!-- Inline Tags -->
+      <!-- Project 1: Critical Transitions -->
+      <div class="project-item">
+        <i class="fa-solid fa-flask project-icon"></i>
+        <div class="project-info">
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="critical-transitions" 
+                  data-group="topic"
+                  title="Click to filter by this topic">
+              Detecting Critical Transitions in Wastewater Systems
+            </span>
+          </h4>
+          <p>Early warning systems for infrastructure resilience using time series analysis.</p>
+          
+          <!-- Inline Tags -->
+          <div class="project-tags">
+            <span class="project-tag topic-tag clickable-filter" 
+                  data-filter="critical-transitions" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Critical Transitions
+            </span>
+            <span class="project-tag sdg-tag sdg-9 clickable-filter" 
+                  data-filter="sdg-9" 
+                  data-group="sdg"
+                  title="Filter by SDG 9">
+              SDG 9
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Mobility Patterns -->
+      <div class="project-item">
+        <i class="fa-solid fa-person-walking project-icon"></i>
+        <div class="project-info">
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="mobility-patterns" 
+                  data-group="topic"
+                  title="Click to filter by this topic">
+              Mobility Patterns and Behavioral Responses During Epidemics
+            </span>
+          </h4>
+          <p>Analysis of human movement data to understand disease spread dynamics.</p>
+          
+          <!-- Inline Tags -->
+          <div class="project-tags">
+            <span class="project-tag topic-tag clickable-filter" 
+                  data-filter="mobility-patterns" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Mobility Patterns
+            </span>
+            <span class="project-tag sdg-tag sdg-3 clickable-filter" 
+                  data-filter="sdg-3" 
+                  data-group="sdg"
+                  title="Filter by SDG 3">
+              SDG 3
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Opinion Dynamics -->
+      <div class="project-item">
+        <i class="fa-solid fa-comments project-icon"></i>
+        <div class="project-info">
+          <h4>
+            <span class="clickable-filter" 
+                  data-filter="opinion-dynamics" 
+                  data-group="topic"
+                  title="Click to filter by this topic">
+              Opinion Dynamics and Polarization in Social Systems
+            </span>
+          </h4>
+          <p>Network-based models of information spread and social influence.</p>
+          
+          <!-- Inline Tags -->
+          <div class="project-tags">
+            <span class="project-tag topic-tag clickable-filter" 
+                  data-filter="opinion-dynamics" 
+                  data-group="topic"
+                  title="Filter by this topic">
+              Opinion Dynamics
+            </span>
+            <span class="project-tag sdg-tag sdg-17 clickable-filter" 
+                  data-filter="sdg-17" 
+                  data-group="sdg"
+                  title="Filter by SDG 17">
+              SDG 17
+            </span>
+          </div>
+        </div>
+      </div>
 
     </div>
-  </div>
 
-  <!-- Project 2 -->
-  <div class="project-item">
-    <i class="fa-solid fa-person-walking project-icon"></i>
-    <div class="project-info">
-      <h4>
-        <span class="clickable-filter" 
-              data-filter="mobility-patterns" 
-              data-group="topic"
-              title="Click to filter by this topic">
-          Mobility Patterns and Behavioral Responses During Epidemics
-        </span>
-      </h4>
-      <p>Analysis of human movement data to understand disease spread dynamics.</p>
-      
-      <!-- Inline Tags -->
-      
+    <!-- Mission Statement -->
+    <div class="mission-box">
+      <i class="fa-solid fa-bullseye mission-icon"></i>
+      <div class="mission-text">
+        <h3>Our Mission</h3>
+        <p>
+          Through interdisciplinary collaboration and real-world data analysis, our goal is to generate 
+          <strong>actionable insights</strong> that inform policy, strengthen system robustness, and contribute to 
+          sustainable development.
+        </p>
+      </div>
     </div>
-  </div>
 
-  <!-- Project 3 -->
-  <div class="project-item">
-    <i class="fa-solid fa-comments project-icon"></i>
-    <div class="project-info">
-      <h4>
-        <span class="clickable-filter" 
-              data-filter="opinion-dynamics" 
-              data-group="topic"
-              title="Click to filter by this topic">
-          Opinion Dynamics and Polarization in Social Systems
-        </span>
-      </h4>
-      <p>Network-based models of information spread and social influence.</p>
-      
-      <!-- Inline Tags -->
-     
-    </div>
   </div>
-
-</div>
 </section>
 
+<!-- ===== FILTERABLE RESEARCH TABLE SECTION ===== -->
 <section>
-  <!-- ===== FILTERABLE RESEARCH TABLE ===== -->
   <div class="research-table-section" id="research-table">
     <h2 class="subsection-title">Projects, Grants & Publications</h2>
     
-    <!-- Results Counter Only -->
+    <!-- Results Counter -->
     <div class="table-header-controls">
       <div class="results-counter">
-        Showing <span id="visible-count">{{ site.publications.size }}</span> of {{ site.publications.size }} items
+        Showing <span id="visible-count">0</span> of {{ site.data.publications | size }} items
       </div>
     </div>
     
-    <!-- Responsive Table Container -->
+    <!-- Table Container -->
     <div class="table-responsive">
       <table class="research-table">
         <thead>
@@ -228,22 +281,23 @@ has_research_animation: true
           </tr>
         </thead>
         <tbody id="research-table-body">
-          {% for pub in site.publications %}
+          {% for pub in site.data.publications %}
           <tr class="research-row" 
               data-type="{{ pub.type }}" 
-              data-sdgs="{{ pub.sdg_tags | join: ' ' | downcase | replace: ' ', '-' }}" 
-              data-topics="{{ pub.topic_tags | join: ' ' | downcase | replace: ' ', '-' }}">
+              data-sdgs="{{ pub.sdg_tags | downcase | replace: '|', ' ' | replace: ' ', '-' }}" 
+              data-topics="{{ pub.topic_tags | downcase | replace: '|', ' ' | replace: ' ', '-' }}">
             
             <td class="title-cell">
-              <a href="{{ pub.url | relative_url }}" class="research-title-link">{{ pub.title }}</a>
+              <span class="research-title-link">{{ pub.title }}</span>
               {% if pub.abstract %}
-              <p class="research-excerpt">{{ pub.abstract | strip_html | truncatewords: 12 }}</p>
+              <p class="research-excerpt">{{ pub.abstract | truncatewords: 12 }}</p>
               {% endif %}
             </td>
             
             <td class="tags-cell">
               {% if pub.sdg_tags %}
-                {% for sdg in pub.sdg_tags %}
+                {% assign sdgs = pub.sdg_tags | split: '|' %}
+                {% for sdg in sdgs %}
                   <span class="table-tag sdg-tag clickable-filter" 
                         data-filter="{{ sdg | downcase | replace: ' ', '-' }}" 
                         data-group="sdg">
@@ -255,7 +309,8 @@ has_research_animation: true
             
             <td class="tags-cell">
               {% if pub.topic_tags %}
-                {% for topic in pub.topic_tags %}
+                {% assign topics = pub.topic_tags | split: '|' %}
+                {% for topic in topics %}
                   <span class="table-tag topic-tag clickable-filter" 
                         data-filter="{{ topic | downcase | replace: ' ', '-' }}" 
                         data-group="topic">
@@ -299,7 +354,7 @@ has_research_animation: true
           </tr>
           {% endfor %}
           
-          {% if site.publications.size == 0 %}
+          {% if site.data.publications.size == 0 %}
           <tr>
             <td colspan="6" class="empty-state">
               <i class="fa-solid fa-inbox"></i>
@@ -311,7 +366,7 @@ has_research_animation: true
       </table>
     </div>
     
-    <!-- Active Filters Display -->
+    <!-- Active Filters Bar -->
     <div class="active-filters-bar" id="active-filters-bar" style="display: none;">
       <span class="active-filters-label">Active filters:</span>
       <div id="active-filters-list"></div>
