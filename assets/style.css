@@ -616,7 +616,9 @@ header {
   width: 100%;
   max-width: 220px;
   margin: 0 auto;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .team-card img,
@@ -682,10 +684,6 @@ header {
 }
 
 .team-card-link:hover .team-card {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
-.team-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
