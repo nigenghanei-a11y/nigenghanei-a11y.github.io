@@ -1800,6 +1800,40 @@ header {
   }
 }
 
+/* Make project titles clickable */
+.project-info h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.project-info h4 .clickable-filter {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px dashed transparent;
+  display: inline;
+}
+
+.project-info h4 .clickable-filter:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.project-info h4 .clickable-filter.active {
+  color: var(--primary);
+  border-bottom-style: solid;
+  border-bottom-color: var(--primary);
+  font-weight: 800;
+}
+
+/* Active indicator for project titles */
+.project-info h4 .clickable-filter.active::after {
+  content: " ✓";
+  font-size: 0.9em;
+  color: var(--primary);
+}
+
 /* ===== PUBLICATION DETAIL PAGE ===== */
 .publication-detail-section {
   background: #ffffff;
