@@ -624,7 +624,7 @@ header {
   width: 100%;
   max-width: 220px;
   margin: 0 auto;
-
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .team-card img,
@@ -680,12 +680,12 @@ header {
   color: var(--primary);
 }
 
-/* Hover effect for both linked and non-linked cards */
+/* Hover effect for both linked and non-linked cards 
 .team-card-link:hover .team-card,
 .team-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-}
+}*/
 
 /* REMOVE THIS - View Profile is now hidden */
 .view-profile {
