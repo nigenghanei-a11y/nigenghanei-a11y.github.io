@@ -647,6 +647,13 @@ header {
   margin-bottom: 0.5rem;
 }
 
+.team-card {
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
 /* Team Filter Tabs - Hidden (using separate sections now) */
 .team-filter-tabs {
   display: none;
@@ -2091,10 +2098,7 @@ header {
   }
   
   /* Team Mobile */
-  .team-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.5rem;
-  }
+ 
   
   .team-card {
     max-width: 180px;
