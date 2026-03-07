@@ -665,10 +665,9 @@ header {
 
 /* Center the social links */
 .team-links {
-  display: flex;
+ 
   justify-content: center;  /* Centers the icons */
-  gap: 0.6rem;
-  margin-bottom: 0.5rem;
+ 
 }
 
 .team-links a {
