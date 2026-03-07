@@ -2072,3 +2072,12 @@ header {
   }
 }
 
+/* Smooth scrolling for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add visual offset for sticky header */
+#research-table {
+  scroll-margin-top: 100px; /* Adjust based on your header height */
+}
