@@ -2219,6 +2219,29 @@ header {
   margin-bottom: 0.5rem;
 }
 
+/* Team Card Image Placeholder */
+.team-card-image-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #ff8533);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.team-card-image-placeholder i {
+  font-size: 4rem;
+  color: white;
+  opacity: 0.9;
+}
+
+/* Remove filter tabs margin since we're not using them */
+.team-filter-tabs {
+  display: none; /* Hide since we have separate sections now */
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   background: #f9f9f9;
