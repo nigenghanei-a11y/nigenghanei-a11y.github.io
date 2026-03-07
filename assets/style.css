@@ -122,20 +122,21 @@ header {
 /* ===== HERO SECTION ===== */
 .hero-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;  /* Changed from column to row */
   justify-content: center;
   align-items: center;
   min-height: 60vh;
   margin: 0 auto;
   gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 2rem;
   background-color: #111111;
-  text-align: center;
 }
 
 .hero-text {
-  max-width: 800px;
+  flex: 1;
+  max-width: 600px;
   color: white;
+  text-align: left;  /* Changed to left align */
 }
 
 .hero-text h1 {
@@ -151,7 +152,8 @@ header {
 }
 
 .hero-image {
-  max-width: 100%;
+  flex: 1;
+  max-width: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,6 +162,45 @@ header {
 .hero-image svg {
   max-width: 100%;
   height: auto;
+}
+
+/* Mobile - Stack on very small screens only */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero-text {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+  }
+}
+
+/* Desktop - Side by side */
+@media (min-width: 769px) {
+  .hero-section {
+    flex-direction: row;
+    min-height: 80vh;
+    padding: 0 2rem;
+  }
+  
+  .hero-text {
+    text-align: left;
+  }
 }
 
 /* ===== GLOBAL CONTAINER & SECTIONS ===== */
