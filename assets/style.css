@@ -150,25 +150,25 @@ header {
   margin: 0 auto;
   gap: 2rem;
   padding: 2rem;
-  background-color: #111111;
+  background-color: #ffffff;
 }
 
 .hero-text {
   flex: 1;
   max-width: 600px;
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: left;
 }
 
 .hero-text h1 {
   font-size: 2.8rem;
   margin-bottom: 1rem;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .hero-text p {
   font-size: 1.2rem;
-  color: #cccccc;
+  color: #000000;
   line-height: 1.6;
 }
 
