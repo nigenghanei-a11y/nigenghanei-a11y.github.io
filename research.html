@@ -156,43 +156,14 @@ has_research_animation: true
   <div class="research-table-section" id="research-table">
     <h2 class="subsection-title">Projects, Grants & Publications</h2>
     
-    <!-- Tag Filter Bar -->
-    <div class="tag-filter-bar">
-      <div class="filter-group">
-        <span class="filter-label">SDG:</span>
-        <div class="tag-chips" id="sdg-filters">
-          <span class="tag-chip" data-filter="sdg-3" data-group="sdg">SDG 3</span>
-          <span class="tag-chip" data-filter="sdg-9" data-group="sdg">SDG 9</span>
-          <span class="tag-chip" data-filter="sdg-13" data-group="sdg">SDG 13</span>
-          <span class="tag-chip" data-filter="sdg-14" data-group="sdg">SDG 14</span>
-          <span class="tag-chip" data-filter="sdg-15" data-group="sdg">SDG 15</span>
-          <span class="tag-chip" data-filter="sdg-17" data-group="sdg">SDG 17</span>
-        </div>
+    <!-- Clear Filters Button + Counter (minimal header) -->
+    <div class="table-header-controls">
+      <button class="clear-filters-btn" id="clear-filters">
+        <i class="fa-solid fa-xmark"></i> Clear Filters
+      </button>
+      <div class="results-counter">
+        Showing <span id="visible-count">{{ site.publications.size }}</span> of {{ site.publications.size }} items
       </div>
-      
-      <div class="filter-group">
-        <span class="filter-label">Topic:</span>
-        <div class="tag-chips" id="topic-filters">
-          <span class="tag-chip" data-filter="topic-critical-transitions" data-group="topic">Critical Transitions</span>
-          <span class="tag-chip" data-filter="topic-mobility" data-group="topic">Mobility Patterns</span>
-          <span class="tag-chip" data-filter="topic-opinion" data-group="topic">Opinion Dynamics</span>
-          <span class="tag-chip" data-filter="topic-wastewater" data-group="topic">Wastewater Systems</span>
-          <span class="tag-chip" data-filter="topic-disease" data-group="topic">Disease Dynamics</span>
-          <span class="tag-chip" data-filter="topic-ecosystem" data-group="topic">Ecosystem Stability</span>
-        </div>
-      </div>
-      
-      <div class="filter-group">
-        <span class="filter-label">Type:</span>
-        <div class="tag-chips" id="type-filters">
-          <span class="tag-chip active" data-filter="all" data-group="type">All</span>
-          <span class="tag-chip" data-filter="paper" data-group="type">Papers</span>
-          <span class="tag-chip" data-filter="grant" data-group="type">Grants</span>
-          <span class="tag-chip" data-filter="project" data-group="type">Projects</span>
-        </div>
-      </div>
-      
-      <button class="clear-filters-btn" id="clear-filters">Clear All</button>
     </div>
     
     <!-- Responsive Table Container -->
@@ -225,7 +196,12 @@ has_research_animation: true
             <td class="tags-cell">
               {% if pub.sdg_tags %}
                 {% for sdg in pub.sdg_tags %}
-                  <span class="table-tag sdg-tag {{ sdg | downcase | replace: ' ', '-' }}">{{ sdg }}</span>
+                  <span class="table-tag sdg-tag clickable-filter" 
+                        data-filter="{{ sdg | slugify }}" 
+                        data-group="sdg"
+                        title="Filter by {{ sdg }}">
+                    {{ sdg }}
+                  </span>
                 {% endfor %}
               {% endif %}
             </td>
@@ -233,13 +209,23 @@ has_research_animation: true
             <td class="tags-cell">
               {% if pub.topic_tags %}
                 {% for topic in pub.topic_tags %}
-                  <span class="table-tag topic-tag" data-topic="{{ topic | slugify }}">{{ topic }}</span>
+                  <span class="table-tag topic-tag clickable-filter" 
+                        data-filter="{{ topic | slugify }}" 
+                        data-group="topic"
+                        title="Filter by {{ topic }}">
+                    {{ topic }}
+                  </span>
                 {% endfor %}
               {% endif %}
             </td>
             
             <td class="type-cell">
-              <span class="type-badge {{ pub.type }}">{{ pub.type | capitalize }}</span>
+              <span class="type-badge clickable-filter" 
+                    data-filter="{{ pub.type }}" 
+                    data-group="type"
+                    title="Filter by {{ pub.type | capitalize }}">
+                {{ pub.type | capitalize }}
+              </span>
             </td>
             
             <td class="date-cell">{{ pub.date | date: "%b %Y" }}</td>
@@ -280,9 +266,12 @@ has_research_animation: true
       </table>
     </div>
     
-    <!-- Results Counter -->
-    <div class="results-counter">
-      Showing <span id="visible-count">{{ site.publications.size }}</span> of {{ site.publications.size }} items
+    <!-- Active Filters Display -->
+    <div class="active-filters-bar" id="active-filters-bar" style="display: none;">
+      <span class="active-filters-label">Active filters:</span>
+      <div id="active-filters-list"></div>
+      <button class="clear-filters-btn-small" id="clear-filters-small">✕</button>
     </div>
+    
   </div>
 </section>
