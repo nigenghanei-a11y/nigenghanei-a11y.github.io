@@ -357,3 +357,26 @@ clickableTags.forEach(tag => {
     }
   });
 });
+
+// In initResearchTableFilter(), update the visible count
+function applyFilters() {
+  let visible = 0;
+  const totalPubs = document.querySelectorAll('.research-row').length;
+  
+  tableRows.forEach(row => {
+    // ... existing filter logic ...
+    
+    if (typeMatch && sdgMatch && topicMatch) {
+      row.classList.remove('filtered');
+      row.style.display = '';
+      visible++;
+    } else {
+      row.classList.add('filtered');
+      row.style.display = 'none';
+    }
+  });
+  
+  if (visibleCount) {
+    visibleCount.textContent = visible;
+  }
+}
